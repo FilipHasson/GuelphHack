@@ -2,6 +2,6 @@
 <Workspace
    version = "1.0">
    <FileRef
-      location = "self:GuelphHacks.xcodeproj">
+      location = "self:GuelphHacks-iOS.xcodeproj">
    </FileRef>
 </Workspace>

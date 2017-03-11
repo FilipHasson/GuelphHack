@@ -4,7 +4,7 @@
 <dict>
 	<key>SchemeUserState</key>
 	<dict>
-		<key>GuelphHacks.xcscheme</key>
+		<key>GuelphHacks-iOS.xcscheme</key>
 		<dict>
 			<key>orderHint</key>
 			<integer>0</integer>
@@ -12,7 +12,7 @@
 	</dict>
 	<key>SuppressBuildableAutocreation</key>
 	<dict>
-		<key>492B3BFC1E7460A700FFCA56</key>
+		<key>497B976F1E746136000145A9</key>
 		<dict>
 			<key>primary</key>
 			<true/>

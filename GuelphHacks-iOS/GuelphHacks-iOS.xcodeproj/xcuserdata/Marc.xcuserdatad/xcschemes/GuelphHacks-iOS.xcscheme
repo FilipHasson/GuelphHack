@@ -14,10 +14,10 @@
             buildForAnalyzing = "YES">
             <BuildableReference
                BuildableIdentifier = "primary"
-               BlueprintIdentifier = "492B3BFC1E7460A700FFCA56"
-               BuildableName = "GuelphHacks.app"
-               BlueprintName = "GuelphHacks"
-               ReferencedContainer = "container:GuelphHacks.xcodeproj">
+               BlueprintIdentifier = "497B976F1E746136000145A9"
+               BuildableName = "GuelphHacks-iOS.app"
+               BlueprintName = "GuelphHacks-iOS"
+               ReferencedContainer = "container:GuelphHacks-iOS.xcodeproj">
             </BuildableReference>
          </BuildActionEntry>
       </BuildActionEntries>
@@ -32,10 +32,10 @@
       <MacroExpansion>
          <BuildableReference
             BuildableIdentifier = "primary"
-            BlueprintIdentifier = "492B3BFC1E7460A700FFCA56"
-            BuildableName = "GuelphHacks.app"
-            BlueprintName = "GuelphHacks"
-            ReferencedContainer = "container:GuelphHacks.xcodeproj">
+            BlueprintIdentifier = "497B976F1E746136000145A9"
+            BuildableName = "GuelphHacks-iOS.app"
+            BlueprintName = "GuelphHacks-iOS"
+            ReferencedContainer = "container:GuelphHacks-iOS.xcodeproj">
          </BuildableReference>
       </MacroExpansion>
       <AdditionalOptions>
@@ -55,10 +55,10 @@
          runnableDebuggingMode = "0">
          <BuildableReference
             BuildableIdentifier = "primary"
-            BlueprintIdentifier = "492B3BFC1E7460A700FFCA56"
-            BuildableName = "GuelphHacks.app"
-            BlueprintName = "GuelphHacks"
-            ReferencedContainer = "container:GuelphHacks.xcodeproj">
+            BlueprintIdentifier = "497B976F1E746136000145A9"
+            BuildableName = "GuelphHacks-iOS.app"
+            BlueprintName = "GuelphHacks-iOS"
+            ReferencedContainer = "container:GuelphHacks-iOS.xcodeproj">
          </BuildableReference>
       </BuildableProductRunnable>
       <AdditionalOptions>
@@ -74,10 +74,10 @@
          runnableDebuggingMode = "0">
          <BuildableReference
             BuildableIdentifier = "primary"
-            BlueprintIdentifier = "492B3BFC1E7460A700FFCA56"
-            BuildableName = "GuelphHacks.app"
-            BlueprintName = "GuelphHacks"
-            ReferencedContainer = "container:GuelphHacks.xcodeproj">
+            BlueprintIdentifier = "497B976F1E746136000145A9"
+            BuildableName = "GuelphHacks-iOS.app"
+            BlueprintName = "GuelphHacks-iOS"
+            ReferencedContainer = "container:GuelphHacks-iOS.xcodeproj">
          </BuildableReference>
       </BuildableProductRunnable>
    </ProfileAction>
