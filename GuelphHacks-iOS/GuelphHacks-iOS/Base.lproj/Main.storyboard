@@ -22,9 +22,49 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                     </view>
+                    <connections>
+                        <segue destination="DkP-fr-MwJ" kind="show" identifier="Chats" id="fmm-bP-9uW"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
+        </scene>
+        <!--Chats View Controller-->
+        <scene sceneID="xFi-C1-tVb">
+            <objects>
+                <viewController id="Bmd-iK-GWD" customClass="ChatsViewController" customModule="GuelphHacks_iOS" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="a2H-GO-hqe"/>
+                        <viewControllerLayoutGuide type="bottom" id="cpM-nc-KgI"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="PoN-sB-cz0">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    </view>
+                    <navigationItem key="navigationItem" id="5hF-Zz-5VS"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="unH-kd-2EG" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2204" y="63.418290854572717"/>
+        </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="RvC-FL-ZV4">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="DkP-fr-MwJ" sceneMemberID="viewController">
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="j18-Kp-eg1">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="Bmd-iK-GWD" kind="relationship" relationship="rootViewController" id="3Wi-lu-Qf9"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Ow3-eG-lf6" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1264.8" y="63.418290854572717"/>
         </scene>
     </scenes>
 </document>
