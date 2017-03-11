@@ -210,33 +210,10 @@ class GroupChannelListViewController: UIViewController, UITableViewDelegate, UIT
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         var cell: UITableViewCell?
-        if self.editableChannel == true {
-            cell = tableView.dequeueReusableCell(withIdentifier: GroupChannelListEditableTableViewCell.cellReuseIdentifier()) as! GroupChannelListEditableTableViewCell?
-            let leaveButton = MGSwipeButton(title: Bundle.sbLocalizedStringForKey(key: "LeaveButton"), backgroundColor: Constants.leaveButtonColor())
-            let hideButton = MGSwipeButton(title: Bundle.sbLocalizedStringForKey(key: "HideButton"), backgroundColor: Constants.hideButtonColor())
+        
+        cell = tableView.dequeueReusableCell(withIdentifier: GroupChannelListTableViewCell.cellReuseIdentifier()) as! GroupChannelListTableViewCell
             
-            hideButton.titleLabel?.font = Constants.hideButtonFont()
-            leaveButton.titleLabel?.font = Constants.leaveButtonFont()
-            
-            (cell as! GroupChannelListEditableTableViewCell).rightButtons = [hideButton, leaveButton]
-            (cell as! GroupChannelListEditableTableViewCell).setModel(aChannel: self.channels[indexPath.row])
-            (cell as! GroupChannelListEditableTableViewCell).delegate = self
-        }
-        else {
-            cell = tableView.dequeueReusableCell(withIdentifier: GroupChannelListTableViewCell.cellReuseIdentifier()) as! GroupChannelListTableViewCell?
-            if self.channels[indexPath.row].isTyping() == true {
-                if self.typingAnimationChannelList.index(of: self.channels[indexPath.row].channelUrl) == nil {
-                    self.typingAnimationChannelList.append(self.channels[indexPath.row].channelUrl)
-                }
-            }
-            else {
-                if self.typingAnimationChannelList.index(of: self.channels[indexPath.row].channelUrl) != nil {
-                    self.typingAnimationChannelList.remove(at: self.typingAnimationChannelList.index(of: self.channels[indexPath.row].channelUrl)!)
-                }
-            }
-            
-            (cell as! GroupChannelListTableViewCell).setModel(aChannel: self.channels[indexPath.row])
-        }
+        (cell as! GroupChannelListTableViewCell).setModel(aChannel: self.channels[indexPath.row])
         
         if self.channels.count > 0 && indexPath.row + 1 == self.channels.count {
             self.loadChannels()

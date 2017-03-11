@@ -11,16 +11,32 @@ import SendBirdSDK
 
 class ChatsViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
 
-    private var channels: [SBDGroupChannel] = []
-    private var tableView: UITableView
+    private var channels: [SBDGroupChannel]!
+    private var tableView: UITableView!
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        self.tableView.delegate = self
-        self.tableView.dataSource = self
+        tableView = UITableView(frame: CGRect(x: 0, y: 0, width: 0, height: 0), style: UITableViewStyle.grouped)
+        view.addSubview(tableView)
+        tableView.delegate = self
+        tableView.dataSource = self
+    
+        tableView.snp.makeConstraints { (make) -> Void in
+            make.center.equalToSuperview()
+            make.size.equalToSuperview()
+        }
         
+    }
+
+    
+    func setupUI() {
+        title = "Chats"
         
+    }
+
+    
+    private func loadChannels() {
         let query = SBDGroupChannel.createMyGroupChannelListQuery()!
         query.limit = 20
         query.loadNextPage(completionHandler: { (channels, error) in
@@ -29,56 +45,28 @@ class ChatsViewController: UIViewController, UITableViewDelegate, UITableViewDat
             }
             
             DispatchQueue.main.async {
-                if self.channels.count == 0 {
-                    self.tableView.separatorStyle = UITableViewCellSeparatorStyle.none
-                }
-                else {
-                    self.tableView.separatorStyle = UITableViewCellSeparatorStyle.singleLine
-                }
-                
-                GroupChannelList.
                 self.tableView.reloadData()
             }
         })
-        // Do any additional setup after loading the view.
     }
-
-    
-    func lol() {
-        title = "Chats"
-        
-    }
-    
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return channels.count
     }
     
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        var cell: UITableViewCell?
+        
+        cell = tableView.dequeueReusableCell(withIdentifier: GroupListTableViewCell.cellReuseIdentifier()) as! GroupListTableViewCell
+        
+        (cell as! GroupListTableViewCell).setModel(aChannel: self.channels[indexPath.row])
+        
+        if self.channels.count > 0 && indexPath.row + 1 == self.channels.count {
+            self.loadChannels()
+        }
+        
+        return cell!
+    }
     
 
     /*
