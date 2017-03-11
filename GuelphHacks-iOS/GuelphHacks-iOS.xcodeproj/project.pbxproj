@@ -12,6 +12,11 @@
 		497B97791E746136000145A9 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 497B97771E746136000145A9 /* Main.storyboard */; };
 		497B977B1E746136000145A9 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 497B977A1E746136000145A9 /* Assets.xcassets */; };
 		497B977E1E746136000145A9 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 497B977C1E746136000145A9 /* LaunchScreen.storyboard */; };
+		497B97861E7466F0000145A9 /* Cartfile in Resources */ = {isa = PBXBuildFile; fileRef = 497B97851E7466F0000145A9 /* Cartfile */; };
+		497B978E1E746ED6000145A9 /* SendBirdSDK.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 497B978D1E746ED6000145A9 /* SendBirdSDK.framework */; };
+		497B97911E74702E000145A9 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 497B97901E74702E000145A9 /* LoginViewController.swift */; };
+		497B97931E747449000145A9 /* SnapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 497B97921E747449000145A9 /* SnapKit.framework */; };
+		497B97951E747451000145A9 /* TextFieldEffects.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 497B97941E747451000145A9 /* TextFieldEffects.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -22,6 +27,11 @@
 		497B977A1E746136000145A9 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		497B977D1E746136000145A9 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		497B977F1E746136000145A9 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		497B97851E7466F0000145A9 /* Cartfile */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = Cartfile; sourceTree = "<group>"; };
+		497B978D1E746ED6000145A9 /* SendBirdSDK.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SendBirdSDK.framework; path = Carthage/Build/iOS/SendBirdSDK.framework; sourceTree = "<group>"; };
+		497B97901E74702E000145A9 /* LoginViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
+		497B97921E747449000145A9 /* SnapKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SnapKit.framework; path = Carthage/Build/iOS/SnapKit.framework; sourceTree = "<group>"; };
+		497B97941E747451000145A9 /* TextFieldEffects.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = TextFieldEffects.framework; path = Carthage/Build/iOS/TextFieldEffects.framework; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -29,6 +39,9 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				497B978E1E746ED6000145A9 /* SendBirdSDK.framework in Frameworks */,
+				497B97931E747449000145A9 /* SnapKit.framework in Frameworks */,
+				497B97951E747451000145A9 /* TextFieldEffects.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -38,8 +51,10 @@
 		497B97671E746136000145A9 = {
 			isa = PBXGroup;
 			children = (
+				497B97851E7466F0000145A9 /* Cartfile */,
 				497B97721E746136000145A9 /* GuelphHacks-iOS */,
 				497B97711E746136000145A9 /* Products */,
+				497B978C1E746ED6000145A9 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -60,8 +75,19 @@
 				497B977A1E746136000145A9 /* Assets.xcassets */,
 				497B977C1E746136000145A9 /* LaunchScreen.storyboard */,
 				497B977F1E746136000145A9 /* Info.plist */,
+				497B97901E74702E000145A9 /* LoginViewController.swift */,
 			);
 			path = "GuelphHacks-iOS";
+			sourceTree = "<group>";
+		};
+		497B978C1E746ED6000145A9 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				497B97941E747451000145A9 /* TextFieldEffects.framework */,
+				497B97921E747449000145A9 /* SnapKit.framework */,
+				497B978D1E746ED6000145A9 /* SendBirdSDK.framework */,
+			);
+			name = Frameworks;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -74,6 +100,7 @@
 				497B976C1E746136000145A9 /* Sources */,
 				497B976D1E746136000145A9 /* Frameworks */,
 				497B976E1E746136000145A9 /* Resources */,
+				497B978F1E746EE9000145A9 /* Carthage Script */,
 			);
 			buildRules = (
 			);
@@ -126,17 +153,39 @@
 			files = (
 				497B977E1E746136000145A9 /* LaunchScreen.storyboard in Resources */,
 				497B977B1E746136000145A9 /* Assets.xcassets in Resources */,
+				497B97861E7466F0000145A9 /* Cartfile in Resources */,
 				497B97791E746136000145A9 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
 
+/* Begin PBXShellScriptBuildPhase section */
+		497B978F1E746EE9000145A9 /* Carthage Script */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"$(SRCROOT)/Carthage/Build/iOS/SendBirdSDK.framework",
+				"$(SRCROOT)/Carthage/Build/iOS/SnapKit.framework",
+				"$(SRCROOT)/Carthage/Build/iOS/TextFieldEffects.framework",
+			);
+			name = "Carthage Script";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "/usr/local/bin/carthage copy-frameworks";
+		};
+/* End PBXShellScriptBuildPhase section */
+
 /* Begin PBXSourcesBuildPhase section */
 		497B976C1E746136000145A9 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				497B97911E74702E000145A9 /* LoginViewController.swift in Sources */,
 				497B97761E746136000145A9 /* ViewController.swift in Sources */,
 				497B97741E746136000145A9 /* AppDelegate.swift in Sources */,
 			);
@@ -260,6 +309,10 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				DEVELOPMENT_TEAM = 2MC337ND56;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/Carthage/Build/iOS",
+				);
 				INFOPLIST_FILE = "GuelphHacks-iOS/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "Marc-Santos.GuelphHacks-iOS";
@@ -273,6 +326,10 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				DEVELOPMENT_TEAM = 2MC337ND56;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/Carthage/Build/iOS",
+				);
 				INFOPLIST_FILE = "GuelphHacks-iOS/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "Marc-Santos.GuelphHacks-iOS";
@@ -300,6 +357,7 @@
 				497B97841E746136000145A9 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
