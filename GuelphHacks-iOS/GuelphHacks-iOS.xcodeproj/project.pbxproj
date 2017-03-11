@@ -7,25 +7,25 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		492B3C011E7460A800FFCA56 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 492B3C001E7460A800FFCA56 /* AppDelegate.swift */; };
-		492B3C031E7460A800FFCA56 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 492B3C021E7460A800FFCA56 /* ViewController.swift */; };
-		492B3C061E7460A800FFCA56 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 492B3C041E7460A800FFCA56 /* Main.storyboard */; };
-		492B3C081E7460A800FFCA56 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 492B3C071E7460A800FFCA56 /* Assets.xcassets */; };
-		492B3C0B1E7460A800FFCA56 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 492B3C091E7460A800FFCA56 /* LaunchScreen.storyboard */; };
+		497B97741E746136000145A9 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 497B97731E746136000145A9 /* AppDelegate.swift */; };
+		497B97761E746136000145A9 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 497B97751E746136000145A9 /* ViewController.swift */; };
+		497B97791E746136000145A9 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 497B97771E746136000145A9 /* Main.storyboard */; };
+		497B977B1E746136000145A9 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 497B977A1E746136000145A9 /* Assets.xcassets */; };
+		497B977E1E746136000145A9 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 497B977C1E746136000145A9 /* LaunchScreen.storyboard */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		492B3BFD1E7460A800FFCA56 /* GuelphHacks.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = GuelphHacks.app; sourceTree = BUILT_PRODUCTS_DIR; };
-		492B3C001E7460A800FFCA56 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		492B3C021E7460A800FFCA56 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
-		492B3C051E7460A800FFCA56 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
-		492B3C071E7460A800FFCA56 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
-		492B3C0A1E7460A800FFCA56 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
-		492B3C0C1E7460A800FFCA56 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		497B97701E746136000145A9 /* GuelphHacks-iOS.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "GuelphHacks-iOS.app"; sourceTree = BUILT_PRODUCTS_DIR; };
+		497B97731E746136000145A9 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		497B97751E746136000145A9 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		497B97781E746136000145A9 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		497B977A1E746136000145A9 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		497B977D1E746136000145A9 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
+		497B977F1E746136000145A9 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
-		492B3BFA1E7460A700FFCA56 /* Frameworks */ = {
+		497B976D1E746136000145A9 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -35,73 +35,73 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		492B3BF41E7460A700FFCA56 = {
+		497B97671E746136000145A9 = {
 			isa = PBXGroup;
 			children = (
-				492B3BFF1E7460A800FFCA56 /* GuelphHacks */,
-				492B3BFE1E7460A800FFCA56 /* Products */,
+				497B97721E746136000145A9 /* GuelphHacks-iOS */,
+				497B97711E746136000145A9 /* Products */,
 			);
 			sourceTree = "<group>";
 		};
-		492B3BFE1E7460A800FFCA56 /* Products */ = {
+		497B97711E746136000145A9 /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				492B3BFD1E7460A800FFCA56 /* GuelphHacks.app */,
+				497B97701E746136000145A9 /* GuelphHacks-iOS.app */,
 			);
 			name = Products;
 			sourceTree = "<group>";
 		};
-		492B3BFF1E7460A800FFCA56 /* GuelphHacks */ = {
+		497B97721E746136000145A9 /* GuelphHacks-iOS */ = {
 			isa = PBXGroup;
 			children = (
-				492B3C001E7460A800FFCA56 /* AppDelegate.swift */,
-				492B3C021E7460A800FFCA56 /* ViewController.swift */,
-				492B3C041E7460A800FFCA56 /* Main.storyboard */,
-				492B3C071E7460A800FFCA56 /* Assets.xcassets */,
-				492B3C091E7460A800FFCA56 /* LaunchScreen.storyboard */,
-				492B3C0C1E7460A800FFCA56 /* Info.plist */,
+				497B97731E746136000145A9 /* AppDelegate.swift */,
+				497B97751E746136000145A9 /* ViewController.swift */,
+				497B97771E746136000145A9 /* Main.storyboard */,
+				497B977A1E746136000145A9 /* Assets.xcassets */,
+				497B977C1E746136000145A9 /* LaunchScreen.storyboard */,
+				497B977F1E746136000145A9 /* Info.plist */,
 			);
-			path = GuelphHacks;
+			path = "GuelphHacks-iOS";
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
-		492B3BFC1E7460A700FFCA56 /* GuelphHacks */ = {
+		497B976F1E746136000145A9 /* GuelphHacks-iOS */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 492B3C0F1E7460A800FFCA56 /* Build configuration list for PBXNativeTarget "GuelphHacks" */;
+			buildConfigurationList = 497B97821E746136000145A9 /* Build configuration list for PBXNativeTarget "GuelphHacks-iOS" */;
 			buildPhases = (
-				492B3BF91E7460A700FFCA56 /* Sources */,
-				492B3BFA1E7460A700FFCA56 /* Frameworks */,
-				492B3BFB1E7460A700FFCA56 /* Resources */,
+				497B976C1E746136000145A9 /* Sources */,
+				497B976D1E746136000145A9 /* Frameworks */,
+				497B976E1E746136000145A9 /* Resources */,
 			);
 			buildRules = (
 			);
 			dependencies = (
 			);
-			name = GuelphHacks;
-			productName = GuelphHacks;
-			productReference = 492B3BFD1E7460A800FFCA56 /* GuelphHacks.app */;
+			name = "GuelphHacks-iOS";
+			productName = "GuelphHacks-iOS";
+			productReference = 497B97701E746136000145A9 /* GuelphHacks-iOS.app */;
 			productType = "com.apple.product-type.application";
 		};
 /* End PBXNativeTarget section */
 
 /* Begin PBXProject section */
-		492B3BF51E7460A700FFCA56 /* Project object */ = {
+		497B97681E746136000145A9 /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
 				LastSwiftUpdateCheck = 0820;
 				LastUpgradeCheck = 0820;
 				ORGANIZATIONNAME = "Marc Santos";
 				TargetAttributes = {
-					492B3BFC1E7460A700FFCA56 = {
+					497B976F1E746136000145A9 = {
 						CreatedOnToolsVersion = 8.2.1;
 						DevelopmentTeam = 2MC337ND56;
 						ProvisioningStyle = Automatic;
 					};
 				};
 			};
-			buildConfigurationList = 492B3BF81E7460A700FFCA56 /* Build configuration list for PBXProject "GuelphHacks" */;
+			buildConfigurationList = 497B976B1E746136000145A9 /* Build configuration list for PBXProject "GuelphHacks-iOS" */;
 			compatibilityVersion = "Xcode 3.2";
 			developmentRegion = English;
 			hasScannedForEncodings = 0;
@@ -109,54 +109,54 @@
 				en,
 				Base,
 			);
-			mainGroup = 492B3BF41E7460A700FFCA56;
-			productRefGroup = 492B3BFE1E7460A800FFCA56 /* Products */;
+			mainGroup = 497B97671E746136000145A9;
+			productRefGroup = 497B97711E746136000145A9 /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				492B3BFC1E7460A700FFCA56 /* GuelphHacks */,
+				497B976F1E746136000145A9 /* GuelphHacks-iOS */,
 			);
 		};
 /* End PBXProject section */
 
 /* Begin PBXResourcesBuildPhase section */
-		492B3BFB1E7460A700FFCA56 /* Resources */ = {
+		497B976E1E746136000145A9 /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				492B3C0B1E7460A800FFCA56 /* LaunchScreen.storyboard in Resources */,
-				492B3C081E7460A800FFCA56 /* Assets.xcassets in Resources */,
-				492B3C061E7460A800FFCA56 /* Main.storyboard in Resources */,
+				497B977E1E746136000145A9 /* LaunchScreen.storyboard in Resources */,
+				497B977B1E746136000145A9 /* Assets.xcassets in Resources */,
+				497B97791E746136000145A9 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
-		492B3BF91E7460A700FFCA56 /* Sources */ = {
+		497B976C1E746136000145A9 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				492B3C031E7460A800FFCA56 /* ViewController.swift in Sources */,
-				492B3C011E7460A800FFCA56 /* AppDelegate.swift in Sources */,
+				497B97761E746136000145A9 /* ViewController.swift in Sources */,
+				497B97741E746136000145A9 /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXVariantGroup section */
-		492B3C041E7460A800FFCA56 /* Main.storyboard */ = {
+		497B97771E746136000145A9 /* Main.storyboard */ = {
 			isa = PBXVariantGroup;
 			children = (
-				492B3C051E7460A800FFCA56 /* Base */,
+				497B97781E746136000145A9 /* Base */,
 			);
 			name = Main.storyboard;
 			sourceTree = "<group>";
 		};
-		492B3C091E7460A800FFCA56 /* LaunchScreen.storyboard */ = {
+		497B977C1E746136000145A9 /* LaunchScreen.storyboard */ = {
 			isa = PBXVariantGroup;
 			children = (
-				492B3C0A1E7460A800FFCA56 /* Base */,
+				497B977D1E746136000145A9 /* Base */,
 			);
 			name = LaunchScreen.storyboard;
 			sourceTree = "<group>";
@@ -164,7 +164,7 @@
 /* End PBXVariantGroup section */
 
 /* Begin XCBuildConfiguration section */
-		492B3C0D1E7460A800FFCA56 /* Debug */ = {
+		497B97801E746136000145A9 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
@@ -213,7 +213,7 @@
 			};
 			name = Debug;
 		};
-		492B3C0E1E7460A800FFCA56 /* Release */ = {
+		497B97811E746136000145A9 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
@@ -255,27 +255,27 @@
 			};
 			name = Release;
 		};
-		492B3C101E7460A800FFCA56 /* Debug */ = {
+		497B97831E746136000145A9 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				DEVELOPMENT_TEAM = 2MC337ND56;
-				INFOPLIST_FILE = GuelphHacks/Info.plist;
+				INFOPLIST_FILE = "GuelphHacks-iOS/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = "Marc-Santos.GuelphHacks";
+				PRODUCT_BUNDLE_IDENTIFIER = "Marc-Santos.GuelphHacks-iOS";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 3.0;
 			};
 			name = Debug;
 		};
-		492B3C111E7460A800FFCA56 /* Release */ = {
+		497B97841E746136000145A9 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				DEVELOPMENT_TEAM = 2MC337ND56;
-				INFOPLIST_FILE = GuelphHacks/Info.plist;
+				INFOPLIST_FILE = "GuelphHacks-iOS/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = "Marc-Santos.GuelphHacks";
+				PRODUCT_BUNDLE_IDENTIFIER = "Marc-Santos.GuelphHacks-iOS";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 3.0;
 			};
@@ -284,24 +284,24 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		492B3BF81E7460A700FFCA56 /* Build configuration list for PBXProject "GuelphHacks" */ = {
+		497B976B1E746136000145A9 /* Build configuration list for PBXProject "GuelphHacks-iOS" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				492B3C0D1E7460A800FFCA56 /* Debug */,
-				492B3C0E1E7460A800FFCA56 /* Release */,
+				497B97801E746136000145A9 /* Debug */,
+				497B97811E746136000145A9 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		492B3C0F1E7460A800FFCA56 /* Build configuration list for PBXNativeTarget "GuelphHacks" */ = {
+		497B97821E746136000145A9 /* Build configuration list for PBXNativeTarget "GuelphHacks-iOS" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				492B3C101E7460A800FFCA56 /* Debug */,
-				492B3C111E7460A800FFCA56 /* Release */,
+				497B97831E746136000145A9 /* Debug */,
+				497B97841E746136000145A9 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 		};
 /* End XCConfigurationList section */
 	};
-	rootObject = 492B3BF51E7460A700FFCA56 /* Project object */;
+	rootObject = 497B97681E746136000145A9 /* Project object */;
 }
