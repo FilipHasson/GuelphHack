@@ -8,7 +8,6 @@
 
 /* Begin PBXBuildFile section */
 		497B97741E746136000145A9 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 497B97731E746136000145A9 /* AppDelegate.swift */; };
-		497B97761E746136000145A9 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 497B97751E746136000145A9 /* ViewController.swift */; };
 		497B97791E746136000145A9 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 497B97771E746136000145A9 /* Main.storyboard */; };
 		497B977B1E746136000145A9 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 497B977A1E746136000145A9 /* Assets.xcassets */; };
 		497B977E1E746136000145A9 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 497B977C1E746136000145A9 /* LaunchScreen.storyboard */; };
@@ -17,12 +16,12 @@
 		497B97911E74702E000145A9 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 497B97901E74702E000145A9 /* LoginViewController.swift */; };
 		497B97931E747449000145A9 /* SnapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 497B97921E747449000145A9 /* SnapKit.framework */; };
 		497B97951E747451000145A9 /* TextFieldEffects.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 497B97941E747451000145A9 /* TextFieldEffects.framework */; };
+		497B97971E747BAE000145A9 /* Colors.swift in Sources */ = {isa = PBXBuildFile; fileRef = 497B97961E747BAE000145A9 /* Colors.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		497B97701E746136000145A9 /* GuelphHacks-iOS.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "GuelphHacks-iOS.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		497B97731E746136000145A9 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		497B97751E746136000145A9 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		497B97781E746136000145A9 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		497B977A1E746136000145A9 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		497B977D1E746136000145A9 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
@@ -32,6 +31,7 @@
 		497B97901E74702E000145A9 /* LoginViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
 		497B97921E747449000145A9 /* SnapKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SnapKit.framework; path = Carthage/Build/iOS/SnapKit.framework; sourceTree = "<group>"; };
 		497B97941E747451000145A9 /* TextFieldEffects.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = TextFieldEffects.framework; path = Carthage/Build/iOS/TextFieldEffects.framework; sourceTree = "<group>"; };
+		497B97961E747BAE000145A9 /* Colors.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Colors.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -70,12 +70,12 @@
 			isa = PBXGroup;
 			children = (
 				497B97731E746136000145A9 /* AppDelegate.swift */,
-				497B97751E746136000145A9 /* ViewController.swift */,
 				497B97771E746136000145A9 /* Main.storyboard */,
 				497B977A1E746136000145A9 /* Assets.xcassets */,
 				497B977C1E746136000145A9 /* LaunchScreen.storyboard */,
 				497B977F1E746136000145A9 /* Info.plist */,
 				497B97901E74702E000145A9 /* LoginViewController.swift */,
+				497B97961E747BAE000145A9 /* Colors.swift */,
 			);
 			path = "GuelphHacks-iOS";
 			sourceTree = "<group>";
@@ -186,7 +186,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				497B97911E74702E000145A9 /* LoginViewController.swift in Sources */,
-				497B97761E746136000145A9 /* ViewController.swift in Sources */,
+				497B97971E747BAE000145A9 /* Colors.swift in Sources */,
 				497B97741E746136000145A9 /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
