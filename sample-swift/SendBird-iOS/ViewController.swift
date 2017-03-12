@@ -28,8 +28,6 @@ class ViewController: UITableViewController, UITextFieldDelegate {
         
         //lol
         var socketService = SocketService()
-        socketService.startBroadcast()
-        
         
         self.userIdTextField.delegate = self
         self.nicknameTextField.delegate = self

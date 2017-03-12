@@ -9,33 +9,31 @@
 import Foundation
 import CocoaAsyncSocket
 
-class SocketService: NSObject, NetServiceDelegate, GCDAsyncSocketDelegate {
+public class SocketService: NSObject, GCDAsyncSocketDelegate {
     
-    var service: NetService?
-    var services = [NetService]()
+    let address = "159.203.32.136"
+    let port = 49153
     var socket: GCDAsyncSocket!
     
-    func startBroadcast() {
+    override init() {
+        super.init()
+        
         socket = GCDAsyncSocket(delegate: self, delegateQueue: DispatchQueue.main)
         do {
-            try socket.accept(onPort: 0)
-            service = NetService(domain: "", type: "_tutorial._tcp", name: "SwiftTutorial", port: Int32(socket.localPort))
-        } catch {
-            print("error listening on port")
-        }
-        if let service = service {
-            service.delegate = self
-            service.publish()
+            try socket.connect(toHost: address, onPort: UInt16(port))
+        } catch let e {
+            print(e)
         }
         
     }
     
-    func netServiceDidPublish(_ sender: NetService) {
-        guard let service = service else {
-            return
-        }
-        print("published succesfully on port \(service.port) / domain: \(service.domain) / \(service.type) / \(service.name)")
+    public func socket(_ sock: GCDAsyncSocket, didConnectToHost host: String, port: UInt16) {
+        print("connected to \(address) on port \(port)")
     }
-    
+
+    //msg
+    //userid / nickname
+    //time
+    //channel
     
 }
