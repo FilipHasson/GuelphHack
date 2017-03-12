@@ -251,8 +251,13 @@ class GroupChannelChattingViewController: UIViewController, SBDConnectionDelegat
                                 "message": message,
                                 "timestamp": timestamp
                             ]
-                            
-                            SocketService.sharedInstance.sendPacket(packetDictionary: dict)
+//                            let dumbString = "\"channel_name\":"+"\""+self.groupChannel.name+"\""+","
+//                            +"\"user_id\":"+"\""+userId+"\""+","
+//                            +"\"message\":"+"\""+message+"\""+","
+//                            +"\"timestamp\":"+"\""+timestamp+"\""+"\n"
+//                            
+                            let dumbString = "\"channel_name\":"+"\""+self.groupChannel.name+"\""+","+"\"user_id\":"+"\""+userId+"\""+","+"\"message\":"+"\""+message+"\""+","+"\"timestamp\":"+"\""+timestamp+"\""+"\n"
+                            SocketService.sharedInstance.sendPacket(msg: dumbString)
                             
                         }
                     }

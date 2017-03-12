@@ -44,27 +44,20 @@ public class SocketService: NSObject, GCDAsyncSocketDelegate {
     public func socket(_ sock: GCDAsyncSocket, didConnectToHost host: String, port: UInt16) {
         print("connected to \(address) on port \(port)")
         if admin {
-            self.sendPacket(packetDictionary: ["user_type" : "admin"])
+            self.sendPacket(msg: "\"user_type\":\"admin\"\n")
         }
         else {
-            self.sendPacket(packetDictionary: ["user_type" : "user"])
+            self.sendPacket(msg: "\"user_type\":\"user\"\n")
         }
     }
     
-    func sendPacket(packetDictionary : [String:Any]) {
+    func sendPacket(msg : String) {
         
-        let json = JSON(packetDictionary)
-        var data: Data?
-        
-        do {
-            try data = json.rawString()?.data(using: String.Encoding.utf8)
-        }
-        catch {
-            print("Failed to send to socket")
-        }
-        
-        if let data = data {
+        if let data = msg.data(using: .utf8) {
             self.socket.write(data, withTimeout: -1, tag: 0)
+        }
+        else {
+            print("Failed to send packet")
         }
         
     }
