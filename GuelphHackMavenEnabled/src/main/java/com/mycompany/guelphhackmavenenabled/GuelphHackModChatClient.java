@@ -7,6 +7,8 @@ package com.mycompany.guelphhackmavenenabled;
 
 import java.awt.event.WindowAdapter;
 import java.awt.event.WindowEvent;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 
 /**
  *
@@ -18,6 +20,7 @@ public class GuelphHackModChatClient {
      * @param args the command line arguments
      */
     public static void main(String[] args) {
+        System.out.println("FUCKING FUCKING FUCK SHIT BITCH");
         final GuelphHackModLogin login = new GuelphHackModLogin();
         final GuelphHackChat chatUI = new GuelphHackChat();
         login.addWindowListener(new WindowAdapter(){
@@ -27,6 +30,13 @@ public class GuelphHackModChatClient {
                 } else {
                     chatUI.setVisible(true);
                     login.setVisible(false);
+                    try {
+                        Thread.sleep(500);
+                    } catch (InterruptedException ex) {
+                        Logger.getLogger(GuelphHackModChatClient.class.getName()).log(Level.SEVERE, null, ex);
+                    }
+                    (new Thread(new ServerListener(chatUI))).start();
+
                 }//WINDOW_DEICONIFIED
             }
         });

@@ -24,6 +24,10 @@ public class GuelphHackMessage {
         return this.stamp.toString()+"| "+this.user+": "+this.message+"\n";
     }
     
+    public void setDate(Date date){
+        this.stamp = date;
+    }
+    
     public GuelphHackMessage (String user, String message){
         this.user = user;
         this.message = message;

@@ -19,6 +19,12 @@ public class Message extends UserActivity implements Serializable{
     private Date date;
     private String chatroom;
     
+    GuelphHackMessage getGHMessage(){
+        GuelphHackMessage ghm = new GuelphHackMessage(super.toString(),content);
+        ghm.setDate(date);
+        return ghm;
+    }
+    
     public Message(String content, User author, Date date, String chatroom){
         super(author);
         this.content = content;

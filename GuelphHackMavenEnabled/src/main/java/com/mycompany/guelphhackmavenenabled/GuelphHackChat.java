@@ -185,6 +185,11 @@ public class GuelphHackChat extends javax.swing.JFrame {
         printMessage(m);
     }   
     
+    public void sendMessage(GuelphHackMessage m){
+        this.currentChat.addMessage(m);
+        printMessage(m);
+    }
+    
     private void clearChatBox(JTextArea j){
         j.setText("");
     }
@@ -295,9 +300,7 @@ public class GuelphHackChat extends javax.swing.JFrame {
     /**
      * @param args the command line arguments
      */
-    public static void main(String args[]) {
-        (new Thread(new ServerListener())).start();
-        
+    public static void main(String args[]) {       
         try {
             for (javax.swing.UIManager.LookAndFeelInfo info : javax.swing.UIManager.getInstalledLookAndFeels()) {
                 if ("Nimbus".equals(info.getName())) {

@@ -1,6 +1,5 @@
 package com.mycompany.guelphhackmavenenabled;
 
-
 import java.io.Serializable;
 
 /*
@@ -23,5 +22,9 @@ public class UserActivity implements Serializable{
     
     public User getUser(){
         return user;
+    }
+    
+    public String toString(){
+        return user.getUserName();
     }
 }
