@@ -6,6 +6,8 @@
 
 package guelphhackmodchatclient;
 
+import java.awt.Dimension;
+import java.awt.Toolkit;
 import java.awt.event.WindowEvent;
 import javax.swing.JFrame;
 import javax.swing.JOptionPane;
@@ -43,6 +45,7 @@ public class GuelphHackModLogin extends javax.swing.JFrame {
         frameTitle = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setUndecorated(true);
 
         usernameLabel.setText("Username:");
 
@@ -75,6 +78,8 @@ public class GuelphHackModLogin extends javax.swing.JFrame {
             }
         });
 
+        Dimension dim = Toolkit.getDefaultToolkit().getScreenSize();
+        this.setLocation(dim.width/2-420/2, dim.height/2-150/2);
         frameTitle.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         frameTitle.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         frameTitle.setText("Moderator Login");
@@ -85,16 +90,7 @@ public class GuelphHackModLogin extends javax.swing.JFrame {
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addGap(35, 35, 35)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addGroup(layout.createSequentialGroup()
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(layout.createSequentialGroup()
-                                .addComponent(loginButton)
-                                .addGap(18, 18, 18)
-                                .addComponent(forgotButton, javax.swing.GroupLayout.PREFERRED_SIZE, 204, javax.swing.GroupLayout.PREFERRED_SIZE))
-                            .addComponent(frameTitle, javax.swing.GroupLayout.PREFERRED_SIZE, 277, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addGap(18, 18, 18)
-                        .addComponent(cancelButton, javax.swing.GroupLayout.DEFAULT_SIZE, 61, Short.MAX_VALUE))
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                             .addComponent(usernameLabel, javax.swing.GroupLayout.DEFAULT_SIZE, 81, Short.MAX_VALUE)
@@ -102,8 +98,15 @@ public class GuelphHackModLogin extends javax.swing.JFrame {
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                             .addComponent(usernameField, javax.swing.GroupLayout.DEFAULT_SIZE, 265, Short.MAX_VALUE)
-                            .addComponent(passwordTextField))))
-                .addContainerGap(27, Short.MAX_VALUE))
+                            .addComponent(passwordTextField)))
+                    .addGroup(layout.createSequentialGroup()
+                        .addComponent(loginButton)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addComponent(forgotButton, javax.swing.GroupLayout.PREFERRED_SIZE, 196, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addComponent(cancelButton, javax.swing.GroupLayout.DEFAULT_SIZE, 83, Short.MAX_VALUE)))
+                .addContainerGap(29, Short.MAX_VALUE))
+            .addComponent(frameTitle, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -119,11 +122,10 @@ public class GuelphHackModLogin extends javax.swing.JFrame {
                     .addComponent(passwordTextField)
                     .addComponent(passwordField, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addGap(18, 18, 18)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(cancelButton)
-                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                        .addComponent(loginButton)
-                        .addComponent(forgotButton)))
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(loginButton)
+                    .addComponent(forgotButton)
+                    .addComponent(cancelButton))
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
@@ -136,7 +138,7 @@ public class GuelphHackModLogin extends javax.swing.JFrame {
         if (udb.loginQuery(usernameField.getText(),passwordTextField.getText())){
             this.username = usernameField.getText();
             this.close = false;
-            this.dispatchEvent(new WindowEvent(this, WindowEvent.WINDOW_DEACTIVATED));
+            this.dispatchEvent(new WindowEvent(this, WindowEvent.WINDOW_DEICONIFIED));
         } else {
             JOptionPane.showMessageDialog(this,"Your credentials are invalid",
     "Invalid Login",JOptionPane.ERROR_MESSAGE);
@@ -146,7 +148,7 @@ public class GuelphHackModLogin extends javax.swing.JFrame {
     private void cancelButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cancelButtonActionPerformed
         // TODO add your handling code here:
         this.close = true;
-        this.dispatchEvent(new WindowEvent(this, WindowEvent.WINDOW_DEACTIVATED));
+        this.dispatchEvent(new WindowEvent(this, WindowEvent.WINDOW_DEICONIFIED));
     }//GEN-LAST:event_cancelButtonActionPerformed
 
     private void usernameFieldActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_usernameFieldActionPerformed

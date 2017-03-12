@@ -11,16 +11,36 @@ package guelphhackmodchatclient;
  */
 class GuelphHackUser {
     private String handle;
+    private String email;
+    private boolean reported;
+    
+    public void setEmail(String email) {
+        this.email = email;
+    }
+
+    public String getEmail() {
+        return email;
+    }
 
     public String getHandle() {
         return handle;
     }
 
+    public boolean isReported(){
+        return reported;
+    }
+    
+    public void reportUser(){
+        this.reported = true;
+    }
+    
     public void setHandle(String name) {
         this.handle = name;
     }
     
-    public GuelphHackUser(String name){
+    public GuelphHackUser(String name, String email){
         this.handle = name;
+        this.email = email;
+        this.reported = false;
     }
 }

@@ -10,6 +10,7 @@
   </NonVisualComponents>
   <Properties>
     <Property name="defaultCloseOperation" type="int" value="3"/>
+    <Property name="undecorated" type="boolean" value="true"/>
   </Properties>
   <SyntheticProperties>
     <SyntheticProperty name="formSizePolicy" type="int" value="1"/>
@@ -38,14 +39,14 @@
                           <Component id="chatroomLabel" alignment="0" max="32767" attributes="0"/>
                           <Group type="102" alignment="1" attributes="0">
                               <Component id="logoutButton" min="-2" pref="74" max="-2" attributes="0"/>
-                              <EmptySpace pref="10" max="32767" attributes="0"/>
+                              <EmptySpace pref="12" max="32767" attributes="0"/>
                               <Component id="switchRoomButton" min="-2" max="-2" attributes="0"/>
                           </Group>
                           <Component id="roomScrollPane" max="32767" attributes="0"/>
                       </Group>
                       <EmptySpace max="-2" attributes="0"/>
                       <Group type="103" groupAlignment="1" attributes="0">
-                          <Component id="chatBoxScrollPane" pref="415" max="32767" attributes="0"/>
+                          <Component id="chatBoxScrollPane" pref="416" max="32767" attributes="0"/>
                           <Component id="chatBoxEntryScrollPane" max="32767" attributes="0"/>
                       </Group>
                       <EmptySpace max="-2" attributes="0"/>
@@ -70,7 +71,7 @@
           <Group type="102" alignment="1" attributes="0">
               <EmptySpace max="-2" attributes="0"/>
               <Component id="currChatLabel" min="-2" pref="30" max="-2" attributes="0"/>
-              <EmptySpace pref="11" max="32767" attributes="0"/>
+              <EmptySpace pref="15" max="32767" attributes="0"/>
               <Group type="103" groupAlignment="0" attributes="0">
                   <Group type="102" attributes="0">
                       <Component id="usersLabel" min="-2" pref="20" max="-2" attributes="0"/>
@@ -98,7 +99,7 @@
                       </Group>
                   </Group>
               </Group>
-              <EmptySpace max="32767" attributes="0"/>
+              <EmptySpace pref="15" max="32767" attributes="0"/>
           </Group>
       </Group>
     </DimensionLayout>
@@ -117,7 +118,8 @@
         <Property name="alignment" type="int" value="1"/>
       </Properties>
       <AuxValues>
-        <AuxValue name="JavaCodeGenerator_allCodePost" type="java.lang.String" value="initRooms();&#xd;&#xa;setCurrentChat(0);"/>
+        <AuxValue name="JavaCodeGenerator_InitCodePost" type="java.lang.String" value="Dimension dim = Toolkit.getDefaultToolkit().getScreenSize();&#xd;  this.setLocation(dim.width/2-780/2, dim.height/2-500/2);"/>
+        <AuxValue name="JavaCodeGenerator_allCodePost" type="java.lang.String" value="rooms = webAPI.getChatrooms();&#xd;&#xa;setCurrentChat(0);"/>
       </AuxValues>
     </Component>
     <Container class="javax.swing.JScrollPane" name="userScrollPane">
@@ -171,11 +173,17 @@
       <Properties>
         <Property name="text" type="java.lang.String" value="Info"/>
       </Properties>
+      <Events>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="infoButtonActionPerformed"/>
+      </Events>
     </Component>
     <Component class="javax.swing.JButton" name="reportButton">
       <Properties>
         <Property name="text" type="java.lang.String" value="Report"/>
       </Properties>
+      <Events>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="reportButtonActionPerformed"/>
+      </Events>
     </Component>
     <Component class="javax.swing.JLabel" name="chatroomLabel">
       <Properties>

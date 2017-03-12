@@ -5,14 +5,18 @@
  */
 package guelphhackmodchatclient;
 
+import java.awt.Dimension;
+import java.awt.Toolkit;
 import java.awt.event.KeyEvent;
 import java.awt.event.WindowEvent;
 import java.util.ArrayList;
+import javax.swing.JDialog;
+import javax.swing.JOptionPane;
 import javax.swing.JTextArea;
 
 /**
  *
- * @author Guest User
+ * @author Filip Hassin
  */
 public class GuelphHackChat extends javax.swing.JFrame {
 
@@ -48,6 +52,7 @@ public class GuelphHackChat extends javax.swing.JFrame {
         miscCheckBox.setText("jCheckBox1");
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setUndecorated(true);
 
         logoutButton.setText("Logout");
         logoutButton.addActionListener(new java.awt.event.ActionListener() {
@@ -57,6 +62,8 @@ public class GuelphHackChat extends javax.swing.JFrame {
         });
 
         currChatLabel.setAlignment(java.awt.Label.CENTER);
+        Dimension dim = Toolkit.getDefaultToolkit().getScreenSize();
+  this.setLocation(dim.width/2-780/2, dim.height/2-500/2);
 
         userScrollPane.setViewportView(userList);
 
@@ -77,8 +84,18 @@ public class GuelphHackChat extends javax.swing.JFrame {
         chatBoxScrollPane.setViewportView(chatBox);
 
         infoButton.setText("Info");
+        infoButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                infoButtonActionPerformed(evt);
+            }
+        });
 
         reportButton.setText("Report");
+        reportButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                reportButtonActionPerformed(evt);
+            }
+        });
 
         chatroomLabel.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         chatroomLabel.setText("Chatrooms");
@@ -105,12 +122,12 @@ public class GuelphHackChat extends javax.swing.JFrame {
                             .addComponent(chatroomLabel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                                 .addComponent(logoutButton, javax.swing.GroupLayout.PREFERRED_SIZE, 74, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 10, Short.MAX_VALUE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 12, Short.MAX_VALUE)
                                 .addComponent(switchRoomButton))
                             .addComponent(roomScrollPane))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                            .addComponent(chatBoxScrollPane, javax.swing.GroupLayout.DEFAULT_SIZE, 415, Short.MAX_VALUE)
+                            .addComponent(chatBoxScrollPane, javax.swing.GroupLayout.DEFAULT_SIZE, 416, Short.MAX_VALUE)
                             .addComponent(chatBoxEntryScrollPane))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
@@ -128,7 +145,7 @@ public class GuelphHackChat extends javax.swing.JFrame {
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                 .addContainerGap()
                 .addComponent(currChatLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 11, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 15, Short.MAX_VALUE)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
                         .addComponent(usersLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 20, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -150,22 +167,16 @@ public class GuelphHackChat extends javax.swing.JFrame {
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(switchRoomButton)
                             .addComponent(logoutButton))))
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addContainerGap(15, Short.MAX_VALUE))
         );
 
-        initRooms();
+        rooms = webAPI.getChatrooms();
         setCurrentChat(0);
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
     
-    private void initRooms(){
-        rooms.add(new GuelphHackChatroom("Social Anxiety"));
-        rooms.add(new GuelphHackChatroom("Depression"));
-        rooms.add(new GuelphHackChatroom("School Stressers"));
-        rooms.add(new GuelphHackChatroom("Grief and Loss"));
-    }
     
     private void sendMessage(String user, String message){
         GuelphHackMessage m = new GuelphHackMessage(user, message);
@@ -203,7 +214,6 @@ public class GuelphHackChat extends javax.swing.JFrame {
     }
     
     private void updateChatList(){
-        //ArrayList<GuelphHackUser> u = c.getUsers();
         roomList.removeAll();
         for (int i =0; i < rooms.size(); i++){
             roomList.add(rooms.get(i).getChatroomName());
@@ -223,7 +233,6 @@ public class GuelphHackChat extends javax.swing.JFrame {
                 setCurrentChat(c);
             }
         }
-        
     }
     
     private void setCurrentChat(GuelphHackChatroom c){
@@ -231,10 +240,20 @@ public class GuelphHackChat extends javax.swing.JFrame {
         clearChatBox(this.chatBox);
         this.chatBox.setEditable(false);
         this.currentChat = c;
-        c.addUser(new GuelphHackUser("Mod"));
-        c.addUser(new GuelphHackUser("Test"));
+        webAPI.updateRoomUsers(c);
         updateUserList(c);
         printChatLog(c);
+    }
+    
+    private GuelphHackUser getUserFromList(String handle){
+        ArrayList<GuelphHackUser> list = currentChat.getUsers();
+        GuelphHackUser u = null;
+        for (int i =0; i < list.size();i++ ){
+            if (list.get(i).getHandle().equals(handle)){
+                u = list.get(i);
+            }
+        }
+        return u;
     }
     
     private void chatBoxEntryKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_chatBoxEntryKeyTyped
@@ -249,8 +268,29 @@ public class GuelphHackChat extends javax.swing.JFrame {
     }//GEN-LAST:event_logoutButtonActionPerformed
 
     private void switchRoomButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_switchRoomButtonActionPerformed
+        if (roomList.getSelectedItem() == null) return;
         setCurrentChat(roomList.getSelectedItem());
     }//GEN-LAST:event_switchRoomButtonActionPerformed
+
+    private void infoButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_infoButtonActionPerformed
+        if (userList.getSelectedItem() == null) return;
+        GuelphHackUser u = getUserFromList(userList.getSelectedItem().toString());
+        if (u.isReported())
+            JOptionPane.showMessageDialog(this,u.getHandle()+"\n"+u.getEmail()+"\nREPORTED");
+        else 
+            JOptionPane.showMessageDialog(this,u.getHandle()+"\n"+u.getEmail());
+    }//GEN-LAST:event_infoButtonActionPerformed
+
+    private void reportButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_reportButtonActionPerformed
+        if (userList.getSelectedItem() == null) return;
+        GuelphHackUser u = getUserFromList(userList.getSelectedItem().toString());
+        int dialogButton = JOptionPane.YES_NO_OPTION;
+        int dialogResult = JOptionPane.showConfirmDialog (null, "Are you sure you wish to report "+u.getHandle()+"?","Warning",dialogButton);
+        if(dialogResult == JOptionPane.YES_OPTION){
+             // \\ Saving code here
+            u.reportUser();
+        }
+    }//GEN-LAST:event_reportButtonActionPerformed
                               
     /**
      * @param args the command line arguments
@@ -299,7 +339,7 @@ public class GuelphHackChat extends javax.swing.JFrame {
     private javax.swing.JScrollPane userScrollPane;
     private javax.swing.JLabel usersLabel;
     // End of variables declaration//GEN-END:variables
-    
+    private GuelphHackWebAPI webAPI = new GuelphHackWebAPI();
     private ArrayList<GuelphHackChatroom> rooms = new ArrayList<GuelphHackChatroom>();
     private GuelphHackChatroom currentChat;
     private boolean appStarting = true;
