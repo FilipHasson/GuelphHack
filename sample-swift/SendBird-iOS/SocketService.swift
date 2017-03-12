@@ -8,6 +8,7 @@
 
 import Foundation
 import CocoaAsyncSocket
+import SwiftyJSON
 
 public class SocketService: NSObject, GCDAsyncSocketDelegate {
     
@@ -33,19 +34,23 @@ public class SocketService: NSObject, GCDAsyncSocketDelegate {
     }
     
 //    func sendPacket(packet: TestPacket) {
-    func sendPacket(messageDictionary : [String:AnyObject]) {
-//        let packetData = NSKeyedArchiver.archivedData(withRootObject: packet)
-//        var packetDataLength = packetData.count
-//        let buffer = NSMutableData(bytes: &packetDataLength, length: MemoryLayout<Int16>.size)
-//        buffer.append(packetData)
-        //let swag = message.data(using: .utf8, allowLossyConversion: false)
-
-//        socket.write(swag!, withTimeout: -1, tag: 0)
+    func sendPacket(packetDictionary : [String:Any]) {
+        
+        let json = JSON(packetDictionary)
+        
+        var data: Data?
+        
+        do {
+            try data = json.rawData()
+        }
+        catch {
+            print("Failed to send to socket")
+        }
+        
+        if let data = data {
+            socket.write(data, withTimeout: -1, tag: 0)
+        }
+        
     }
-
-    //msg
-    //userid / nickname
-    //time
-    //channel
     
 }

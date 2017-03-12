@@ -9,13 +9,13 @@
             shouldBeEnabled = "Yes"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
-            filePath = "SendBird-iOS/GroupChannel/GroupChannelChattingViewController.swift"
-            timestampString = "511008732.410129"
+            filePath = "SendBird-iOS/SocketService.swift"
+            timestampString = "511010066.24948"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "247"
-            endingLineNumber = "247"
-            landmarkName = "sendMessage()"
+            startingLineNumber = "51"
+            endingLineNumber = "51"
+            landmarkName = "sendPacket(packetDictionary:)"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
