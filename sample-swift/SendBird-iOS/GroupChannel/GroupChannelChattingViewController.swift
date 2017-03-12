@@ -252,8 +252,7 @@ class GroupChannelChattingViewController: UIViewController, SBDConnectionDelegat
                                 "timestamp": timestamp
                             ]
                             
-                            let socket = SocketService()
-                            socket.sendPacket(packetDictionary: dict)
+                            SocketService.sharedInstance.sendPacket(packetDictionary: dict)
                             
                         }
                     }
@@ -452,7 +451,7 @@ class GroupChannelChattingViewController: UIViewController, SBDConnectionDelegat
                 })
             }
             else {
-                
+                //
             }
             
             do {

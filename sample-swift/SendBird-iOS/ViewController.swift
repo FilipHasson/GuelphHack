@@ -90,6 +90,16 @@ class ViewController: UITableViewController, UITextFieldDelegate {
                     
                     return
                 }
+
+                if let userId = user?.userId {
+                    if userId == "moderator" || userId == "admin" {
+                        SocketService.sharedInstance.connectSocket(admin: true)
+                    }
+                    else {
+                        SocketService.sharedInstance.connectSocket(admin: false)
+                    }
+                }
+                
                 
                 if SBDMain.getPendingPushToken() != nil {
                     SBDMain.registerDevicePushToken(SBDMain.getPendingPushToken()!, unique: true, completionHandler: { (status, error) in
@@ -106,33 +116,34 @@ class ViewController: UITableViewController, UITextFieldDelegate {
                         }
                     })
                 }
-                
-                SBDMain.updateCurrentUserInfo(withNickname: trimmedNickname, profileUrl: nil, completionHandler: { (error) in
-                    DispatchQueue.main.async {
-                        self.userIdTextField.isEnabled = true
-                        self.nicknameTextField.isEnabled = true
-                        
-                        self.indicatorView.stopAnimating()
-                    }
-                    
-                    if error != nil {
-                        let vc = UIAlertController(title: Bundle.sbLocalizedStringForKey(key: "ErrorTitle"), message: error?.domain, preferredStyle: UIAlertControllerStyle.alert)
-                        let closeAction = UIAlertAction(title: Bundle.sbLocalizedStringForKey(key: "CloseButton"), style: UIAlertActionStyle.cancel, handler: nil)
-                        vc.addAction(closeAction)
+                if user?.nickname == nil {
+                    SBDMain.updateCurrentUserInfo(withNickname: trimmedNickname, profileUrl: nil, completionHandler: { (error) in
                         DispatchQueue.main.async {
-                            self.present(vc, animated: true, completion: nil)
+                            self.userIdTextField.isEnabled = true
+                            self.nicknameTextField.isEnabled = true
+                            
+                            self.indicatorView.stopAnimating()
                         }
                         
-                        SBDMain.disconnect(completionHandler: { 
+                        if error != nil {
+                            let vc = UIAlertController(title: Bundle.sbLocalizedStringForKey(key: "ErrorTitle"), message: error?.domain, preferredStyle: UIAlertControllerStyle.alert)
+                            let closeAction = UIAlertAction(title: Bundle.sbLocalizedStringForKey(key: "CloseButton"), style: UIAlertActionStyle.cancel, handler: nil)
+                            vc.addAction(closeAction)
+                            DispatchQueue.main.async {
+                                self.present(vc, animated: true, completion: nil)
+                            }
                             
-                        })
+                            SBDMain.disconnect(completionHandler: { 
+                                
+                            })
+                            
+                            return
+                        }
                         
-                        return
-                    }
-                    
-                    UserDefaults.standard.set(SBDMain.getCurrentUser()?.userId, forKey: "sendbird_user_id")
-                    UserDefaults.standard.set(SBDMain.getCurrentUser()?.nickname, forKey: "sendbird_user_nickname")
-                })
+                        UserDefaults.standard.set(SBDMain.getCurrentUser()?.userId, forKey: "sendbird_user_id")
+                        UserDefaults.standard.set(SBDMain.getCurrentUser()?.nickname, forKey: "sendbird_user_nickname")
+                    })
+                }
                 
                 DispatchQueue.main.async {
                     let vc = GroupChannelListViewController(nibName: "GroupChannelListViewController", bundle: Bundle.main)
