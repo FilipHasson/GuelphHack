@@ -27,24 +27,15 @@ public class GuelphHackModChatClient {
                 } else {
                     chatUI.setVisible(true);
                     login.setVisible(false);
-                    //login.close();
                 }
-                //displayMessage("WindowListener method called: windowDeactivated.");
             }
         });
         chatUI.addWindowListener(new WindowAdapter(){
             public void windowClosing(WindowEvent e) {
+                System.exit(0);
             }
         });
-/*            public void windowClosing(WindowEvent e) {
-                if (login.isClosing())
-                    System.exit(0);
-                else {
-                    GuelphHackUI chatUI = new GuelphHackUI();
-                }
-            }
-        });
-*/
+
         login.setVisible(true);
     }
     

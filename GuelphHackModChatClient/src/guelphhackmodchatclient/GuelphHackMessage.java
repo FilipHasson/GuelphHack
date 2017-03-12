@@ -20,7 +20,13 @@ public class GuelphHackMessage {
         return this.user+": "+this.message+"\n";
     }
     
+    public String toStringVerbose(){
+        return this.stamp.toString()+"| "+this.user+": "+this.message+"\n";
+    }
+    
     public GuelphHackMessage (String user, String message){
-        
+        this.user = user;
+        this.message = message;
+        this.stamp = new Date();
     }
 }

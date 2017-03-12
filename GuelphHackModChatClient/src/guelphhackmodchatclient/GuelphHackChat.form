@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 
-<Form version="1.3" maxVersion="1.9" type="org.netbeans.modules.form.forminfo.JFrameFormInfo">
+<Form version="1.5" maxVersion="1.9" type="org.netbeans.modules.form.forminfo.JFrameFormInfo">
   <NonVisualComponents>
     <Component class="javax.swing.JCheckBox" name="miscCheckBox">
       <Properties>
@@ -33,19 +33,22 @@
           <Group type="102" alignment="0" attributes="0">
               <EmptySpace max="-2" attributes="0"/>
               <Group type="103" groupAlignment="0" attributes="0">
-                  <Component id="myAccountButton" min="-2" pref="170" max="-2" attributes="0"/>
+                  <Component id="logoutButton" min="-2" pref="170" max="-2" attributes="0"/>
                   <Component id="jPanel1" max="32767" attributes="0"/>
               </Group>
               <EmptySpace max="-2" attributes="0"/>
               <Group type="103" groupAlignment="0" attributes="0">
-                  <Component id="chatBoxEntryScrollPane" alignment="1" pref="376" max="32767" attributes="0"/>
-                  <Component id="currChatLabel" alignment="1" max="32767" attributes="0"/>
-                  <Component id="chatBoxScrollPane" max="32767" attributes="0"/>
+                  <Component id="currChatLabel" max="32767" attributes="0"/>
+                  <Component id="chatBoxEntryScrollPane" max="32767" attributes="0"/>
+                  <Group type="102" alignment="1" attributes="0">
+                      <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
+                      <Component id="chatBoxScrollPane" min="-2" pref="415" max="-2" attributes="0"/>
+                  </Group>
               </Group>
               <EmptySpace max="-2" attributes="0"/>
               <Group type="103" groupAlignment="0" max="-2" attributes="0">
-                  <Component id="userScrollPane" max="32767" attributes="0"/>
-                  <Component id="usersLabel" pref="100" max="32767" attributes="0"/>
+                  <Component id="userScrollPane" pref="139" max="32767" attributes="0"/>
+                  <Component id="usersLabel" max="32767" attributes="0"/>
               </Group>
               <EmptySpace max="-2" attributes="0"/>
           </Group>
@@ -57,23 +60,27 @@
               <EmptySpace max="-2" attributes="0"/>
               <Group type="103" groupAlignment="0" attributes="0">
                   <Component id="usersLabel" alignment="1" max="32767" attributes="0"/>
-                  <Component id="myAccountButton" max="32767" attributes="0"/>
                   <Group type="102" alignment="0" attributes="0">
                       <Component id="currChatLabel" min="-2" pref="38" max="-2" attributes="0"/>
                       <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
                   </Group>
+                  <Component id="logoutButton" alignment="0" max="32767" attributes="0"/>
               </Group>
               <EmptySpace max="-2" attributes="0"/>
               <Group type="103" groupAlignment="0" attributes="0">
+                  <Component id="jPanel1" max="32767" attributes="0"/>
                   <Group type="102" alignment="0" attributes="0">
                       <EmptySpace min="-2" pref="4" max="-2" attributes="0"/>
-                      <Component id="chatBoxScrollPane" min="-2" pref="308" max="-2" attributes="0"/>
-                      <EmptySpace max="-2" attributes="0"/>
-                      <Component id="chatBoxEntryScrollPane" min="-2" max="-2" attributes="0"/>
-                      <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
+                      <Group type="103" groupAlignment="0" attributes="0">
+                          <Component id="userScrollPane" alignment="1" max="32767" attributes="0"/>
+                          <Group type="102" alignment="0" attributes="0">
+                              <Component id="chatBoxScrollPane" min="-2" pref="308" max="-2" attributes="0"/>
+                              <EmptySpace max="-2" attributes="0"/>
+                              <Component id="chatBoxEntryScrollPane" min="-2" max="-2" attributes="0"/>
+                              <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
+                          </Group>
+                      </Group>
                   </Group>
-                  <Component id="userScrollPane" alignment="0" max="32767" attributes="0"/>
-                  <Component id="jPanel1" max="32767" attributes="0"/>
               </Group>
               <EmptySpace max="-2" attributes="0"/>
           </Group>
@@ -81,19 +88,21 @@
     </DimensionLayout>
   </Layout>
   <SubComponents>
-    <Component class="javax.swing.JButton" name="myAccountButton">
+    <Component class="javax.swing.JButton" name="logoutButton">
       <Properties>
-        <Property name="text" type="java.lang.String" value="Account"/>
+        <Property name="text" type="java.lang.String" value="Logout"/>
       </Properties>
+      <Events>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="logoutButtonActionPerformed"/>
+      </Events>
     </Component>
     <Component class="java.awt.Label" name="currChatLabel">
       <Properties>
         <Property name="alignment" type="int" value="1"/>
-        <Property name="text" type="java.lang.String" value="Current Chat"/>
       </Properties>
-      <AccessibilityProperties>
-        <Property name="AccessibleContext.accessibleName" type="java.lang.String" value="currentChat"/>
-      </AccessibilityProperties>
+      <AuxValues>
+        <AuxValue name="JavaCodeGenerator_allCodePost" type="java.lang.String" value="setCurrentChat(this.socAnxRoom);"/>
+      </AuxValues>
     </Component>
     <Container class="javax.swing.JScrollPane" name="userScrollPane">
 
@@ -114,9 +123,6 @@
           <Events>
             <EventHandler event="keyTyped" listener="java.awt.event.KeyListener" parameters="java.awt.event.KeyEvent" handler="chatBoxEntryKeyTyped"/>
           </Events>
-          <AuxValues>
-            <AuxValue name="JavaCodeGenerator_InitCodePost" type="java.lang.String" value="chatBoxEntry.setLineWrap(true);&#xd;&#xa;chatBoxEntry.setWrapStyleWord(true);"/>
-          </AuxValues>
         </Component>
       </SubComponents>
     </Container>
@@ -163,15 +169,20 @@
         </Component>
         <Component class="javax.swing.JButton" name="socialAnxientyButton">
           <Properties>
-            <Property name="text" type="java.lang.String" value="Social Anxiety"/>
+            <Property name="text" type="java.lang.String" value="1. Social Anxiety"/>
+            <Property name="horizontalAlignment" type="int" value="2"/>
           </Properties>
           <Events>
             <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="socialAnxientyButtonActionPerformed"/>
           </Events>
+          <AuxValues>
+            <AuxValue name="JavaCodeGenerator_ListenersCodePost" type="java.lang.String" value="setCurrentChat(this.socAnxRoom);"/>
+          </AuxValues>
         </Component>
         <Component class="javax.swing.JButton" name="depressionButton">
           <Properties>
-            <Property name="text" type="java.lang.String" value="Depression"/>
+            <Property name="text" type="java.lang.String" value="2. Depression"/>
+            <Property name="horizontalAlignment" type="int" value="2"/>
           </Properties>
           <Events>
             <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="depressionButtonActionPerformed"/>
@@ -179,7 +190,8 @@
         </Component>
         <Component class="javax.swing.JButton" name="schoolStresserButton">
           <Properties>
-            <Property name="text" type="java.lang.String" value="School Stressers"/>
+            <Property name="text" type="java.lang.String" value="3. School Stressers"/>
+            <Property name="horizontalAlignment" type="int" value="2"/>
           </Properties>
           <Events>
             <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="schoolStresserButtonActionPerformed"/>
@@ -187,7 +199,8 @@
         </Component>
         <Component class="javax.swing.JButton" name="griefLossButton">
           <Properties>
-            <Property name="text" type="java.lang.String" value="Grief &amp; Loss"/>
+            <Property name="text" type="java.lang.String" value="4. Grief &amp; Loss"/>
+            <Property name="horizontalAlignment" type="int" value="2"/>
           </Properties>
           <Events>
             <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="griefLossButtonActionPerformed"/>
@@ -206,11 +219,7 @@
           <Properties>
             <Property name="columns" type="int" value="20"/>
             <Property name="rows" type="int" value="5"/>
-            <Property name="focusable" type="boolean" value="false"/>
           </Properties>
-          <AuxValues>
-            <AuxValue name="JavaCodeGenerator_InitCodePost" type="java.lang.String" value="chatBox.setLineWrap(true);&#xd;&#xa;chatBox.setWrapStyleWord(true);"/>
-          </AuxValues>
         </Component>
       </SubComponents>
     </Container>

@@ -14,6 +14,19 @@ import java.util.ArrayList;
 public class GuelphHackChatroom {
     private String chatroomName;
     private ArrayList<GuelphHackMessage> messages = new ArrayList<GuelphHackMessage>(); 
+    private boolean activeRoom;
+    
+    public void addMessage(GuelphHackMessage m){
+        messages.add(m);
+    }
+    
+    public boolean isEmpty(){
+        return messages.isEmpty();
+    }
+    
+    public ArrayList<GuelphHackMessage> getChatLog(){
+        return messages;
+    }
     
     public String getChatroomName(){
         return chatroomName;
@@ -21,5 +34,6 @@ public class GuelphHackChatroom {
     
     public GuelphHackChatroom(String name){
         this.chatroomName = name;
+        this.activeRoom=false;
     }
 }
