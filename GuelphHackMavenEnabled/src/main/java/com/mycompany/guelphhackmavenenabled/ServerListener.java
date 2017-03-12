@@ -2,7 +2,9 @@ package com.mycompany.guelphhackmavenenabled;
 
 
 import com.google.gson.Gson;
+import java.io.BufferedReader;
 import java.io.IOException;
+import java.io.InputStreamReader;
 import java.io.ObjectInputStream;
 import java.io.ObjectOutputStream;
 import java.io.PrintWriter;
@@ -25,7 +27,7 @@ public class ServerListener implements Runnable{
     
     private final String HOST_IP = "159.203.32.136";
     private final int PORT = 45202;
-    private ObjectInputStream in;
+    private BufferedReader in;
     private PrintWriter out;
     private boolean connected;
     private GuelphHackChat ghc;
@@ -43,22 +45,26 @@ public class ServerListener implements Runnable{
         
         Gson gson = new Gson();
         
+        String s = "{";
+        s += json + "}";
+        
+        json=s;
         GsonMessage gsonMessage;
         gsonMessage = gson.fromJson(json, GsonMessage.class);
-        
+/*        
         if (gsonMessage.flag.equals("true")){
             Flag flag = new Flag(new User(gsonMessage.user_id,gsonMessage.channel_name));
             return flag;
             
         }
-        else{
-            Date date = new Date(gsonMessage.time);
-            System.out.println("Date: "+date.toString());
-            Message message = new Message(gsonMessage.message
-                    , new User(gsonMessage.user_id,gsonMessage.channel_name)
-                    , date, gsonMessage.channel_name);
-            return message;
-        }
+        else{*/
+        Date date = new Date();//Date(gsonMessage.time);
+        System.out.println("Date: "+date.toString());
+        Message message = new Message(gsonMessage.message
+                , new User(gsonMessage.user_id,gsonMessage.channel_name)
+                , date, gsonMessage.channel_name);
+        return message;
+        //}
         
     }
     
@@ -75,8 +81,8 @@ public class ServerListener implements Runnable{
 
             out = new PrintWriter(host.getOutputStream());
             System.out.println("Ehh lmao");
-            this.in = new ObjectInputStream(host.getInputStream());
-            
+            this.in = new BufferedReader(new InputStreamReader(host.getInputStream()));
+            //host.getInputStream()
             out.printf("Hey I just met you\n");
             out.flush();
             
@@ -97,9 +103,18 @@ public class ServerListener implements Runnable{
             try {
                 //Listen for activties
                 System.out.println("Waiting for shit");
+                //Message test = new Message("Go fuck yoself",new User("asshat","Social Anxiety"),new Date(),"Social Anxiety");
+                //GuelphHackMessage ghmtest = test.getGHMessage();
+                //ghc.sendMessage(ghmtest);
                 //if (in!=null){4
-                String string = in.readLine();
-                System.out.println("parsing some shity");
+                //String string = in.readLine();
+                 String string;
+                while((string = in.readLine()) == null ){
+                    System.out.println("Loopin lik a mothafucka");
+                    if (string != null) break;
+                }
+                System.out.println("parsing some shity: "+string);
+                //Message test = new Message("Go fuck yoself",new User("asshat","Social Anxiety"),new Date(),"Social Anxiety");
                 UserActivity activity = strToActivity(string);
                 //UserActivity activity = (UserActivity)in.readObject();
                 System.out.println("Something Happened");
