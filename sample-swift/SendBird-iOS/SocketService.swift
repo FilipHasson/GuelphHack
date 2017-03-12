@@ -55,13 +55,14 @@ public class SocketService: NSObject, GCDAsyncSocketDelegate {
         
         let json = JSON(packetDictionary)
         var data: Data?
+        
         do {
-            try data = json.rawData()
+            try data = json.rawString()?.data(using: String.Encoding.utf8)
         }
         catch {
             print("Failed to send to socket")
         }
-
+        
         if let data = data {
             self.socket.write(data, withTimeout: -1, tag: 0)
         }

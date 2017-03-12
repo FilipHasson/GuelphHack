@@ -451,7 +451,18 @@ class GroupChannelChattingViewController: UIViewController, SBDConnectionDelegat
                 })
             }
             else {
-                //
+                if let nickname = sender?.nickname {
+                    let vc = UIAlertController(title: nickname, message: nil, preferredStyle: .actionSheet)
+                    let okAction = UIAlertAction(title: "Close", style: UIAlertActionStyle.cancel, handler: nil)
+                    let flagUserAction = UIAlertAction(title: "Flag user", style: .default, handler: { (action) in
+                        let vc = UIAlertController(title: nil, message: "\(nickname)'s message flagged as dangerous", preferredStyle: .alert)
+                        vc.addAction(okAction)
+                        self.present(vc, animated:true, completion: nil)
+                    })
+                    vc.addAction(flagUserAction)
+                    vc.addAction(okAction)
+                    self.present(vc, animated: true, completion: nil)
+                }
             }
             
             do {
