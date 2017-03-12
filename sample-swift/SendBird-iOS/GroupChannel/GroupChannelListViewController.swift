@@ -57,7 +57,7 @@ class GroupChannelListViewController: UIViewController, UITableViewDelegate, UIT
         rightEditItem.imageInsets = UIEdgeInsetsMake(0, 14, 0, -14)
         
         //self.navItem.leftBarButtonItems = [negativeLeftSpacer, leftBackItem]
-        self.navItem.rightBarButtonItems = [negativeRightSpacer, rightCreateGroupChannelItem, rightEditItem]
+//        self.navItem.rightBarButtonItems = [negativeRightSpacer, rightCreateGroupChannelItem, rightEditItem]
     }
     
     private func setEditableNavigationItems() {

@@ -123,7 +123,7 @@ class GroupChannelChattingViewController: UIViewController, SBDConnectionDelegat
         }
         let closeAction = UIAlertAction(title: Bundle.sbLocalizedStringForKey(key: "CloseButton"), style: UIAlertActionStyle.cancel, handler: nil)
         vc.addAction(seeMemberListAction)
-        vc.addAction(seeBlockedUserListAction)
+        //vc.addAction(seeBlockedUserListAction)
         vc.addAction(closeAction)
         
         self.present(vc, animated: true, completion: nil)
