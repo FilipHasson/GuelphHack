@@ -187,7 +187,7 @@ class OpenChannelChattingViewController: UIViewController, SBDConnectionDelegate
                 for message in messages! {
                     self.chattingView.messages.append(message)
                 }
-            }
+            }   
             else {
                 for message in messages! {
                     self.chattingView.messages.insert(message, at: 0)

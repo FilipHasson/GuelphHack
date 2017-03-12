@@ -393,33 +393,15 @@ class GroupChannelChattingViewController: UIViewController, SBDConnectionDelegat
     // MARK: MessageDelegate
     func clickProfileImage(viewCell: UITableViewCell, user: SBDUser) {
         let vc = UIAlertController(title: user.nickname, message: nil, preferredStyle: UIAlertControllerStyle.actionSheet)
-        let seeBlockUserAction = UIAlertAction(title: Bundle.sbLocalizedStringForKey(key: "BlockUserButton"), style: UIAlertActionStyle.default) { (action) in
-            SBDMain.blockUser(user, completionHandler: { (blockedUser, error) in
-                if error != nil {
-                    DispatchQueue.main.async {
-                        let vc = UIAlertController(title: Bundle.sbLocalizedStringForKey(key: "ErrorTitle"), message: error?.domain, preferredStyle: UIAlertControllerStyle.alert)
-                        let closeAction = UIAlertAction(title: Bundle.sbLocalizedStringForKey(key: "CloseButton"), style: UIAlertActionStyle.cancel, handler: nil)
-                        vc.addAction(closeAction)
-                        DispatchQueue.main.async {
-                            self.present(vc, animated: true, completion: nil)
-                        }
-                    }
-                    
-                    return
-                }
-                
-                DispatchQueue.main.async {
-                    let vc = UIAlertController(title: Bundle.sbLocalizedStringForKey(key: "UserBlockedTitle"), message: String(format: Bundle.sbLocalizedStringForKey(key: "UserBlockedMessage"), user.nickname!), preferredStyle: UIAlertControllerStyle.alert)
-                    let closeAction = UIAlertAction(title: Bundle.sbLocalizedStringForKey(key: "CloseButton"), style: UIAlertActionStyle.cancel, handler: nil)
-                    vc.addAction(closeAction)
-                    DispatchQueue.main.async {
-                        self.present(vc, animated: true, completion: nil)
-                    }
-                }
-            })
-        }
         let closeAction = UIAlertAction(title: Bundle.sbLocalizedStringForKey(key: "CloseButton"), style: UIAlertActionStyle.cancel, handler: nil)
-        vc.addAction(seeBlockUserAction)
+        let flagUserAction = UIAlertAction(title: "Flag user", style: .default, handler: { (action) in
+            let vc = UIAlertController(title: nil, message: "\(user.nickname!) flagged for help", preferredStyle: .alert)
+            let okAction = UIAlertAction(title: "Ok", style: UIAlertActionStyle.cancel, handler: nil)
+            vc.addAction(okAction)
+            self.present(vc, animated:true, completion: nil)
+        })
+        
+        vc.addAction(flagUserAction)
         vc.addAction(closeAction)
         
         DispatchQueue.main.async {
