@@ -10,7 +10,7 @@ import java.awt.event.WindowEvent;
 
 /**
  *
- * @author Guest User
+ * @author Filip Hasson
  */
 public class GuelphHackModChatClient {
 
@@ -19,11 +19,32 @@ public class GuelphHackModChatClient {
      */
     public static void main(String[] args) {
         GuelphHackModLogin login = new GuelphHackModLogin();
+        GuelphHackChat chatUI = new GuelphHackChat();
         login.addWindowListener(new WindowAdapter(){
-            public void windowClosing(WindowEvent e) {
-                System.exit(0);
+            public void windowDeactivated(WindowEvent e) {
+                if (login.isClosing()) {
+                    System.exit(0);
+                } else {
+                    chatUI.setVisible(true);
+                    login.setVisible(false);
+                    //login.close();
+                }
+                //displayMessage("WindowListener method called: windowDeactivated.");
             }
         });
+        chatUI.addWindowListener(new WindowAdapter(){
+            public void windowClosing(WindowEvent e) {
+            }
+        });
+/*            public void windowClosing(WindowEvent e) {
+                if (login.isClosing())
+                    System.exit(0);
+                else {
+                    GuelphHackUI chatUI = new GuelphHackUI();
+                }
+            }
+        });
+*/
         login.setVisible(true);
     }
     

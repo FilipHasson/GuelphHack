@@ -6,15 +6,22 @@
 
 package guelphhackmodchatclient;
 
+import java.awt.event.WindowEvent;
+import javax.swing.JFrame;
+import javax.swing.JOptionPane;
+
 /**
  *
  * @author Guest User
  */
 public class GuelphHackModLogin extends javax.swing.JFrame {
 
+    private boolean close;
+    private String username;
     /** Creates new form GuelphHackModLogin */
     public GuelphHackModLogin() {
         initComponents();
+        this.close = false;
     }
 
     /** This method is called from within the constructor to
@@ -55,6 +62,11 @@ public class GuelphHackModLogin extends javax.swing.JFrame {
         });
 
         forgotButton.setText("Forgot My Password");
+        forgotButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                forgotButtonActionPerformed(evt);
+            }
+        });
 
         cancelButton.setText("Cancel");
         cancelButton.addActionListener(new java.awt.event.ActionListener() {
@@ -119,18 +131,54 @@ public class GuelphHackModLogin extends javax.swing.JFrame {
 
     private void loginButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_loginButtonActionPerformed
         // TODO add your handling code here:
-        
+        GuelphHackUserDB udb = new GuelphHackUserDB();
+        if (udb.loginQuery(usernameField.getText(),passwordTextField.getText())){
+            this.username = usernameField.getText();
+            this.close = false;
+            this.dispatchEvent(new WindowEvent(this, WindowEvent.WINDOW_DEACTIVATED));
+        } else {
+            JOptionPane.showMessageDialog(this,"Your credentials are invalid",
+    "Invalid Login",JOptionPane.ERROR_MESSAGE);
+        }    
     }//GEN-LAST:event_loginButtonActionPerformed
 
     private void cancelButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cancelButtonActionPerformed
         // TODO add your handling code here:
-        System.exit(0);
+        this.close = true;
+        this.dispatchEvent(new WindowEvent(this, WindowEvent.WINDOW_DEACTIVATED));
     }//GEN-LAST:event_cancelButtonActionPerformed
 
     private void usernameFieldActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_usernameFieldActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_usernameFieldActionPerformed
 
+    private void forgotButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_forgotButtonActionPerformed
+        // TODO add your handling code here:
+        JFrame frame=new JFrame("Error");
+        String username = (String)JOptionPane.showInputDialog(
+                                        frame,
+                                        "Enter your Username:",
+                                        "Forgot Password",
+                                        JOptionPane.PLAIN_MESSAGE,
+                                        null,
+                                        null,
+                                        "");
+        if (username != null){
+            GuelphHackUserDB udb = new GuelphHackUserDB();
+            JOptionPane jp = new JOptionPane("Success");
+            jp.showMessageDialog(frame,"We sent an email to the address coresponding with \""+username+"\"");
+            udb.resetPasswordQuery(username);
+        }
+    }//GEN-LAST:event_forgotButtonActionPerformed
+
+    public void close(){
+        this.dispatchEvent(new WindowEvent(this, WindowEvent.WINDOW_CLOSING));
+    }
+    
+    public boolean isClosing(){
+        return this.close;
+    }
+    
     /**
      * @param args the command line arguments
      */
@@ -157,7 +205,6 @@ public class GuelphHackModLogin extends javax.swing.JFrame {
             java.util.logging.Logger.getLogger(GuelphHackModLogin.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
         //</editor-fold>
-
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {

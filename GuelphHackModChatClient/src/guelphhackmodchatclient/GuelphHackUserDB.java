@@ -15,7 +15,13 @@ public class GuelphHackUserDB {
         return true;
     }
     
-    public boolean loginAttempt(String username, String password){
-        return passwordHash(username, password);
+    public boolean loginQuery(String username, String password){
+        //return passwordHash(username, password);
+        if (username.equals("invalid"))return false;
+        return true;
+    }
+    
+    public void resetPasswordQuery (String username){
+        
     }
 }
