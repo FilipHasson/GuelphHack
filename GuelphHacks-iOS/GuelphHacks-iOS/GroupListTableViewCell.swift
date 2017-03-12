@@ -19,9 +19,16 @@ class GroupListTableViewCell: UITableViewCell {
         return String(describing: self)
     }
     
+    static func nib() -> UINib {
+        return UINib(nibName: String(describing: self), bundle: Bundle(for: self))
+    }
+    
     override func awakeFromNib() {
         super.awakeFromNib()
         
+        channelNameLabel.font = UIFont.boldSystemFont(ofSize: 20)
+        
+        self.addSubview(channelNameLabel)
         channelNameLabel.snp.makeConstraints { (make) -> Void in
             make.centerY.equalToSuperview()
             make.centerX.equalToSuperview()

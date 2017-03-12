@@ -387,7 +387,7 @@
 				TargetAttributes = {
 					5ABA0B7C1DA6010A000C82DC = {
 						CreatedOnToolsVersion = 8.0;
-						DevelopmentTeam = 8K8M9F9X95;
+						DevelopmentTeam = 6DW673HEEQ;
 						ProvisioningStyle = Automatic;
 					};
 				};
@@ -762,11 +762,11 @@
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				DEVELOPMENT_TEAM = 8K8M9F9X95;
+				DEVELOPMENT_TEAM = 6DW673HEEQ;
 				INFOPLIST_FILE = "SendBird-iOS/Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = com.sendbird.sample;
+				PRODUCT_BUNDLE_IDENTIFIER = GuelphHacks;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 3.0;
 			};
@@ -778,11 +778,11 @@
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				DEVELOPMENT_TEAM = 8K8M9F9X95;
+				DEVELOPMENT_TEAM = 6DW673HEEQ;
 				INFOPLIST_FILE = "SendBird-iOS/Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = com.sendbird.sample;
+				PRODUCT_BUNDLE_IDENTIFIER = GuelphHacks;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 3.0;
 			};

@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		4909752D1E74A48F00BA48F3 /* GroupListTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4909752B1E74A48F00BA48F3 /* GroupListTableViewCell.swift */; };
 		4909752E1E74A48F00BA48F3 /* GroupListTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 4909752C1E74A48F00BA48F3 /* GroupListTableViewCell.xib */; };
+		490975301E74C58B00BA48F3 /* GroupChatViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4909752F1E74C58B00BA48F3 /* GroupChatViewController.swift */; };
 		497B97741E746136000145A9 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 497B97731E746136000145A9 /* AppDelegate.swift */; };
 		497B97791E746136000145A9 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 497B97771E746136000145A9 /* Main.storyboard */; };
 		497B977B1E746136000145A9 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 497B977A1E746136000145A9 /* Assets.xcassets */; };
@@ -25,6 +26,7 @@
 /* Begin PBXFileReference section */
 		4909752B1E74A48F00BA48F3 /* GroupListTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GroupListTableViewCell.swift; sourceTree = "<group>"; };
 		4909752C1E74A48F00BA48F3 /* GroupListTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = GroupListTableViewCell.xib; sourceTree = "<group>"; };
+		4909752F1E74C58B00BA48F3 /* GroupChatViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GroupChatViewController.swift; sourceTree = "<group>"; };
 		497B97701E746136000145A9 /* GuelphHacks-iOS.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "GuelphHacks-iOS.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		497B97731E746136000145A9 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		497B97781E746136000145A9 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -93,6 +95,7 @@
 				497B97901E74702E000145A9 /* LoginViewController.swift */,
 				497B97961E747BAE000145A9 /* Colors.swift */,
 				497B97981E748C22000145A9 /* ChatsViewController.swift */,
+				4909752F1E74C58B00BA48F3 /* GroupChatViewController.swift */,
 			);
 			path = "GuelphHacks-iOS";
 			sourceTree = "<group>";
@@ -205,6 +208,7 @@
 			files = (
 				4909752D1E74A48F00BA48F3 /* GroupListTableViewCell.swift in Sources */,
 				497B97911E74702E000145A9 /* LoginViewController.swift in Sources */,
+				490975301E74C58B00BA48F3 /* GroupChatViewController.swift in Sources */,
 				497B97971E747BAE000145A9 /* Colors.swift in Sources */,
 				497B97991E748C22000145A9 /* ChatsViewController.swift in Sources */,
 				497B97741E746136000145A9 /* AppDelegate.swift in Sources */,

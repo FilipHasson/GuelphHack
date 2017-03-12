@@ -28,12 +28,7 @@ class ViewController: UITableViewController, UITextFieldDelegate {
         
         // Version
         let path = Bundle.main.path(forResource: "Info", ofType: "plist")
-        if path != nil {
-            let infoDict = NSDictionary(contentsOfFile: path!)
-            let sampleUIVersion = infoDict?["CFBundleShortVersionString"] as! String
-            let version = String(format: "Sample UI v%@ / SDK v%@", sampleUIVersion, SBDMain.getSDKVersion())
-            self.versionLabel.text = version
-        }
+
         
         self.userIdTextField.delegate = self
         self.nicknameTextField.delegate = self

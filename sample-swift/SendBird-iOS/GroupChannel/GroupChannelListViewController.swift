@@ -82,21 +82,7 @@ class GroupChannelListViewController: UIViewController, UITableViewDelegate, UIT
         self.groupChannelListQuery?.limit = 20
         
         self.groupChannelListQuery?.loadNextPage(completionHandler: { (channels, error) in
-            if error != nil {
-                DispatchQueue.main.async {
-                    self.refreshControl?.endRefreshing()
-                }
-                
-                let vc = UIAlertController(title: Bundle.sbLocalizedStringForKey(key: "ErrorTitle"), message: error?.domain, preferredStyle: UIAlertControllerStyle.alert)
-                let closeAction = UIAlertAction(title: Bundle.sbLocalizedStringForKey(key: "CloseButton"), style: UIAlertActionStyle.cancel, handler:nil)
-                vc.addAction(closeAction)
-                DispatchQueue.main.async {
-                    self.present(vc, animated: true, completion: nil)
-                }
-                
-                return
-            }
-            
+
             for channel in channels! {
                 self.channels.append(channel)
             }

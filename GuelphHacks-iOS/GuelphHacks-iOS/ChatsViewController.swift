@@ -11,11 +11,13 @@ import SendBirdSDK
 
 class ChatsViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
 
-    private var channels: [SBDGroupChannel]!
+    private var channels: [SBDGroupChannel] = []
     private var tableView: UITableView!
-    
+    private var groupChannelListQuery: SBDGroupChannelListQuery?
+
     override func viewDidLoad() {
         super.viewDidLoad()
+        
         
         tableView = UITableView(frame: CGRect(x: 0, y: 0, width: 0, height: 0), style: UITableViewStyle.grouped)
         view.addSubview(tableView)
@@ -27,27 +29,76 @@ class ChatsViewController: UIViewController, UITableViewDelegate, UITableViewDat
             make.size.equalToSuperview()
         }
         
-    }
+        self.tableView.register(GroupListTableViewCell.self, forCellReuseIdentifier: "GroupListTableViewCell")
 
-    
-    func setupUI() {
-        title = "Chats"
+        self.tableView.register(GroupListTableViewCell.nib(), forCellReuseIdentifier: GroupListTableViewCell.cellReuseIdentifier())
+        setupUI()
+        
+        self.refreshChannelList()
         
     }
 
     
-    private func loadChannels() {
-        let query = SBDGroupChannel.createMyGroupChannelListQuery()!
-        query.limit = 20
-        query.loadNextPage(completionHandler: { (channels, error) in
+    func testing(sender: UIButton) {
+        print("hello")
+        tableView.reloadData()
+    }
+    
+    func setupUI() {
+        title = "Chats"
+        
+        let refreshButton = UIBarButtonItem(title: "Refresh", style: .plain, target: self, action: #selector(ChatsViewController.testing(sender:)))
+ 
+
+        self.navigationItem.leftBarButtonItem = refreshButton
+
+        
+    }
+
+    private func refreshChannelList() {
+        self.channels.removeAll()
+        
+        DispatchQueue.main.async {
+            self.tableView.reloadData()
+        }
+        
+        self.groupChannelListQuery = SBDGroupChannel.createMyGroupChannelListQuery()
+        self.groupChannelListQuery?.limit = 20
+        
+        self.groupChannelListQuery?.loadNextPage(completionHandler: { (channels, error) in
+            
             for channel in channels! {
                 self.channels.append(channel)
             }
             
             DispatchQueue.main.async {
+                if self.channels.count == 0 {
+                    self.tableView.separatorStyle = UITableViewCellSeparatorStyle.none
+                }
+                else {
+                    self.tableView.separatorStyle = UITableViewCellSeparatorStyle.singleLine
+                }
                 self.tableView.reloadData()
             }
         })
+    }
+    
+    private func loadChannels() {
+        
+        if self.groupChannelListQuery != nil {
+            if self.groupChannelListQuery?.hasNext == false {
+                return
+            }
+            self.groupChannelListQuery?.loadNextPage(completionHandler: { (channels, error) in
+                for channel in channels! {
+                    self.channels.append(channel)
+                }
+                
+                DispatchQueue.main.async {
+                    self.tableView.reloadData()
+                }
+            })
+        }
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
@@ -55,17 +106,17 @@ class ChatsViewController: UIViewController, UITableViewDelegate, UITableViewDat
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        var cell: UITableViewCell?
         
-        cell = tableView.dequeueReusableCell(withIdentifier: GroupListTableViewCell.cellReuseIdentifier()) as! GroupListTableViewCell
+        let cell = tableView.dequeueReusableCell(withIdentifier: "GroupListTableViewCell", for: indexPath) as! GroupListTableViewCell
         
-        (cell as! GroupListTableViewCell).setModel(aChannel: self.channels[indexPath.row])
+        
+        cell.setModel(aChannel: self.channels[indexPath.row])
         
         if self.channels.count > 0 && indexPath.row + 1 == self.channels.count {
             self.loadChannels()
         }
         
-        return cell!
+        return cell
     }
     
 
