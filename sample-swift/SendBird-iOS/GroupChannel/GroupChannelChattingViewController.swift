@@ -31,7 +31,7 @@ class GroupChannelChattingViewController: UIViewController, SBDConnectionDelegat
 
         // Do any additional setup after loading the view.
         let titleView: UILabel = UILabel(frame: CGRect(x: 0, y: 0, width: self.view.frame.size.width - 100, height: 64))
-        titleView.attributedText = Utils.generateNavigationTitle(mainTitle: String(format:Bundle.sbLocalizedStringForKey(key: "GroupChannelTitle"), self.groupChannel.memberCount), subTitle: "")
+        titleView.attributedText = Utils.generateNavigationTitle(mainTitle: groupChannel.name, subTitle: "")
         titleView.numberOfLines = 2
         titleView.textAlignment = NSTextAlignment.center
         

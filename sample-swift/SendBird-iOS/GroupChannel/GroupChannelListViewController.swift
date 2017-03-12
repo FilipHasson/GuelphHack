@@ -56,7 +56,7 @@ class GroupChannelListViewController: UIViewController, UITableViewDelegate, UIT
         let rightEditItem = UIBarButtonItem(image: UIImage(named: "btn_edit"), style: UIBarButtonItemStyle.done, target: self, action: #selector(editGroupChannel))
         rightEditItem.imageInsets = UIEdgeInsetsMake(0, 14, 0, -14)
         
-        self.navItem.leftBarButtonItems = [negativeLeftSpacer, leftBackItem]
+        //self.navItem.leftBarButtonItems = [negativeLeftSpacer, leftBackItem]
         self.navItem.rightBarButtonItems = [negativeRightSpacer, rightCreateGroupChannelItem, rightEditItem]
     }
     

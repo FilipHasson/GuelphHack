@@ -15,7 +15,7 @@ protocol CreateGroupChannelUserListViewControllerDelegate: class {
 
 class CreateGroupChannelUserListViewController: UIViewController, UICollectionViewDataSource, UICollectionViewDelegate, UITableViewDelegate, UITableViewDataSource, CreateGroupChannelSelectOptionViewControllerDelegate {
     weak var delegate: CreateGroupChannelUserListViewControllerDelegate?
-    
+    weak var selectOptionDelegate: CreateGroupChannelSelectOptionViewControllerDelegate?
     @IBOutlet weak var navItem: UINavigationItem!
     @IBOutlet weak var selectedUserListCollectionView: UICollectionView!
     @IBOutlet weak var userListTableView: UITableView!
@@ -26,9 +26,56 @@ class CreateGroupChannelUserListViewController: UIViewController, UICollectionVi
     private var userListQuery: SBDUserListQuery?
     private var selectedUsers: [SBDUser] = []
     
+    @objc private func createChannel() {
+        
+        let vc = UIAlertController(title: "Name group", message: "", preferredStyle: .alert)
+        let closeAction = UIAlertAction(title: Bundle.sbLocalizedStringForKey(key: "CloseButton"), style: UIAlertActionStyle.cancel, handler: { (action) in
+            
+        })
+        vc.addTextField(configurationHandler: nil)
+        let nameGroupAction = UIAlertAction(title: "Create group", style: .default, handler: {
+            alert -> Void in
+            
+            let groupNameField = vc.textFields![0] as UITextField
+            SBDGroupChannel.createChannel(withName: groupNameField.text, users: self.selectedUsers, coverUrl: nil, data: nil, completionHandler: { (channel, error) in
+                
+                if error != nil {
+                    let vc = UIAlertController(title: Bundle.sbLocalizedStringForKey(key: "ErrorTitle"), message: error?.domain, preferredStyle: UIAlertControllerStyle.alert)
+                    vc.addAction(closeAction)
+                    DispatchQueue.main.async {
+                        self.present(vc, animated: true, completion: nil)
+                    }
+                    
+                    
+                    return
+                }
+                
+                let vc = UIAlertController(title: Bundle.sbLocalizedStringForKey(key: "GroupChannelCreatedTitle"), message: Bundle.sbLocalizedStringForKey(key: "GroupChannelCreatedMessage"), preferredStyle: UIAlertControllerStyle.alert)
+                let closeAction = UIAlertAction(title: Bundle.sbLocalizedStringForKey(key: "CloseButton"), style: UIAlertActionStyle.cancel, handler: { (action) in
+                    self.dismiss(animated: false, completion: {
+                        if self.delegate != nil {
+                            self.selectOptionDelegate?.didFinishCreating(channel: channel!, vc: self)
+                        }
+                    })
+                })
+                vc.addAction(closeAction)
+                self.present(vc, animated: true, completion: {
+                    
+                })
+    
+            })
+            
+        })
+        
+        vc.addAction(nameGroupAction)
+        vc.addAction(closeAction)
+        self.present(vc, animated: true, completion: nil)
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
+        self.selectOptionDelegate = self
         // Do any additional setup after loading the view.
         
         let negativeLeftSpacer = UIBarButtonItem(barButtonSystemItem: UIBarButtonSystemItem.fixedSpace, target: nil, action: nil)
@@ -37,7 +84,7 @@ class CreateGroupChannelUserListViewController: UIViewController, UICollectionVi
         negativeRightSpacer.width = -2
         
         let leftCloseItem = UIBarButtonItem(image: UIImage(named: "btn_close"), style: UIBarButtonItemStyle.done, target: self, action: #selector(close))
-        let rightNextItem = UIBarButtonItem(title: Bundle.sbLocalizedStringForKey(key: "NextButton"), style: UIBarButtonItemStyle.plain, target: self, action: #selector(nextStage))
+        let rightNextItem = UIBarButtonItem(title: Bundle.sbLocalizedStringForKey(key: "NextButton"), style: UIBarButtonItemStyle.plain, target: self, action: #selector(createChannel))
         rightNextItem.setTitleTextAttributes([NSFontAttributeName : Constants.navigationBarButtonItemFont()], for: UIControlState.normal)
         
         self.navItem.leftBarButtonItems = [negativeLeftSpacer, leftCloseItem]
@@ -86,6 +133,7 @@ class CreateGroupChannelUserListViewController: UIViewController, UICollectionVi
     @objc private func refreshUserList() {
         self.loadUserList(initial: true)
     }
+    
     
     @objc private func loadUserList(initial: Bool) {
         if initial == true {

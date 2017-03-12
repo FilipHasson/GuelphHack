@@ -182,8 +182,12 @@ class GroupChannelListTableViewCell: UITableViewCell {
                 coverImages[i].af_setImage(withURL: URL(string: memberExceptCurrentUser[i].profileUrl!)!, placeholderImage: UIImage(named: "img_profile"))
             }
         }
-        
-        self.channelNameLabel.text = memberNames.joined(separator: ", ")
+        if aChannel.name == "Group Channel" {
+            self.channelNameLabel.text = memberNames.joined(separator: ", ")
+        }
+        else {
+            self.channelNameLabel.text = channel.name
+        }
         var lastMessageTimestamp: Int64 = 0
         if self.channel.lastMessage is SBDUserMessage {
             let lastMessage = (self.channel.lastMessage as! SBDUserMessage)
