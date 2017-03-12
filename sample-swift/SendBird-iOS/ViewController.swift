@@ -27,16 +27,6 @@ class ViewController: UITableViewController, UITextFieldDelegate {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        var socketService = SocketService()
-        
-        let dict = [
-            "message" : "fuck you",
-            "from" : "marc",
-            "hackathon" : "guelph hacks"
-        ]
-        
-            socketService.sendPacket(message: "\(dict)")
-        
         self.userIdTextField.delegate = self
         self.nicknameTextField.delegate = self
         

@@ -239,6 +239,22 @@ class GroupChannelChattingViewController: UIViewController, SBDConnectionDelegat
                         return
                     }
                     
+                    if let userMessage = userMessage {
+                        if let message = userMessage.message, let userId = userMessage.sender?.userId {
+                            let formatter = DateFormatter()
+                            formatter.dateFormat = "yyyy-MM-dd hh:mm:ss"
+                            let s = formatter.string(from: Date())
+                            print(s)
+                        }
+                    }
+//                    [
+//                        "channel_name" : self.groupChannel.name,
+//                        "user_id": "",
+//                        "message": userMessage?.message!
+//                        "time"
+//                        
+//                    ]
+//                    
                     self.chattingView.messages[self.chattingView.messages.index(of: preSendMessage)!] = userMessage!
                     
                     self.chattingView.chattingTableView.reloadData()

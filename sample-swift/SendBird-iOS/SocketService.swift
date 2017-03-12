@@ -33,14 +33,14 @@ public class SocketService: NSObject, GCDAsyncSocketDelegate {
     }
     
 //    func sendPacket(packet: TestPacket) {
-    func sendPacket(message: String) {
+    func sendPacket(messageDictionary : [String:AnyObject]) {
 //        let packetData = NSKeyedArchiver.archivedData(withRootObject: packet)
 //        var packetDataLength = packetData.count
 //        let buffer = NSMutableData(bytes: &packetDataLength, length: MemoryLayout<Int16>.size)
 //        buffer.append(packetData)
-        let swag = message.data(using: .utf8, allowLossyConversion: false)
+        //let swag = message.data(using: .utf8, allowLossyConversion: false)
 
-        socket.write(swag!, withTimeout: -1, tag: 0)
+//        socket.write(swag!, withTimeout: -1, tag: 0)
     }
 
     //msg
