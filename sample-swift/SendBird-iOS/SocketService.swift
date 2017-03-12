@@ -13,7 +13,7 @@ import SwiftyJSON
 public class SocketService: NSObject, GCDAsyncSocketDelegate {
     
     let address = "159.203.32.136"
-    let port = 45201
+    let port = 45202
     var socket: GCDAsyncSocket!
     
     override init() {
@@ -29,15 +29,11 @@ public class SocketService: NSObject, GCDAsyncSocketDelegate {
     
     public func socket(_ sock: GCDAsyncSocket, didConnectToHost host: String, port: UInt16) {
         print("connected to \(address) on port \(port)")
-//        let packet = Packet(objectType: .Testpacket, object: messagePacket)
-        //sendPacket(packet: messagePacket)
     }
     
-//    func sendPacket(packet: TestPacket) {
     func sendPacket(packetDictionary : [String:Any]) {
         
         let json = JSON(packetDictionary)
-        
         var data: Data?
         
         do {
@@ -50,6 +46,11 @@ public class SocketService: NSObject, GCDAsyncSocketDelegate {
         if let data = data {
             socket.write(data, withTimeout: -1, tag: 0)
         }
+        
+        
+//        if let data = json.rawString()?.data(using: .utf8) {
+//            socket.write(data, withTimeout: -1, tag: 0)
+//        }
         
     }
     

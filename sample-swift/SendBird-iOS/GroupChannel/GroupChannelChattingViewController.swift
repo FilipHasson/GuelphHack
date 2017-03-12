@@ -451,6 +451,9 @@ class GroupChannelChattingViewController: UIViewController, SBDConnectionDelegat
                     })
                 })
             }
+            else {
+                
+            }
             
             do {
                 let detector: NSDataDetector = try NSDataDetector(types: NSTextCheckingResult.CheckingType.link.rawValue)
