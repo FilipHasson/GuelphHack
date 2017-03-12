@@ -4,7 +4,7 @@
  * and open the template in the editor.
  */
 
-package guelphhackmodchatclient;
+package com.mycompany.guelphhackmavenenabled;
 
 import java.awt.Dimension;
 import java.awt.Toolkit;

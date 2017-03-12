@@ -57,3 +57,4 @@ captures/
 # Keystore files
 *.jks
 >>>>>>> b2f37e0430764b21e8c7b1d0719288c8041de155
+/GuelphHackMavenEnabled/target/

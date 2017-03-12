@@ -3,7 +3,7 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package guelphhackmodchatclient;
+package com.mycompany.guelphhackmavenenabled;
 
 import java.awt.event.WindowAdapter;
 import java.awt.event.WindowEvent;
@@ -18,8 +18,8 @@ public class GuelphHackModChatClient {
      * @param args the command line arguments
      */
     public static void main(String[] args) {
-        GuelphHackModLogin login = new GuelphHackModLogin();
-        GuelphHackChat chatUI = new GuelphHackChat();
+        final GuelphHackModLogin login = new GuelphHackModLogin();
+        final GuelphHackChat chatUI = new GuelphHackChat();
         login.addWindowListener(new WindowAdapter(){
             public void windowDeiconified(WindowEvent e) {
                 if (login.isClosing()) {

@@ -3,8 +3,9 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package guelphhackmodchatclient;
+package com.mycompany.guelphhackmavenenabled;
 
+import com.mycompany.guelphhackmavenenabled.ServerListener;
 import java.awt.Dimension;
 import java.awt.Toolkit;
 import java.awt.event.KeyEvent;
@@ -287,7 +288,6 @@ public class GuelphHackChat extends javax.swing.JFrame {
         int dialogButton = JOptionPane.YES_NO_OPTION;
         int dialogResult = JOptionPane.showConfirmDialog (null, "Are you sure you wish to report "+u.getHandle()+"?","Warning",dialogButton);
         if(dialogResult == JOptionPane.YES_OPTION){
-             // \\ Saving code here
             u.reportUser();
         }
     }//GEN-LAST:event_reportButtonActionPerformed
@@ -296,6 +296,8 @@ public class GuelphHackChat extends javax.swing.JFrame {
      * @param args the command line arguments
      */
     public static void main(String args[]) {
+        (new Thread(new ServerListener())).start();
+        
         try {
             for (javax.swing.UIManager.LookAndFeelInfo info : javax.swing.UIManager.getInstalledLookAndFeels()) {
                 if ("Nimbus".equals(info.getName())) {
@@ -342,5 +344,4 @@ public class GuelphHackChat extends javax.swing.JFrame {
     private GuelphHackWebAPI webAPI = new GuelphHackWebAPI();
     private ArrayList<GuelphHackChatroom> rooms = new ArrayList<GuelphHackChatroom>();
     private GuelphHackChatroom currentChat;
-    private boolean appStarting = true;
 }
