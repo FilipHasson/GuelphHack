@@ -15,7 +15,6 @@ public class GuelphHackChatroom {
     private String chatroomName;
     private ArrayList<GuelphHackMessage> messages = new ArrayList<GuelphHackMessage>(); 
     private ArrayList<GuelphHackUser> users = new ArrayList<GuelphHackUser>();
-    private boolean activeRoom;
     
     public boolean emptyRoom (){
         if (users.size() == 0){
@@ -66,6 +65,5 @@ public class GuelphHackChatroom {
     
     public GuelphHackChatroom(String name){
         this.chatroomName = name;
-        this.activeRoom=false;
     }
 }

@@ -36,16 +36,14 @@ public class GuelphHackChat extends javax.swing.JFrame {
         chatBoxEntryScrollPane = new javax.swing.JScrollPane();
         chatBoxEntry = new javax.swing.JTextArea();
         usersLabel = new javax.swing.JLabel();
-        mainPanel = new javax.swing.JPanel();
-        roomListLabel = new javax.swing.JLabel();
-        socialAnxientyButton = new javax.swing.JButton();
-        depressionButton = new javax.swing.JButton();
-        schoolStresserButton = new javax.swing.JButton();
-        griefLossButton = new javax.swing.JButton();
         chatBoxScrollPane = new javax.swing.JScrollPane();
         chatBox = new javax.swing.JTextArea();
         infoButton = new javax.swing.JButton();
         reportButton = new javax.swing.JButton();
+        chatroomLabel = new javax.swing.JLabel();
+        switchRoomButton = new javax.swing.JButton();
+        roomScrollPane = new javax.swing.JScrollPane();
+        roomList = new java.awt.List();
 
         miscCheckBox.setText("jCheckBox1");
 
@@ -74,66 +72,6 @@ public class GuelphHackChat extends javax.swing.JFrame {
         usersLabel.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         usersLabel.setText("Users");
 
-        roomListLabel.setText("    Chatrooms:");
-
-        socialAnxientyButton.setText("1. Social Anxiety");
-        socialAnxientyButton.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
-        socialAnxientyButton.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                socialAnxientyButtonActionPerformed(evt);
-            }
-        });
-        setCurrentChat(this.socAnxRoom);
-
-        depressionButton.setText("2. Depression");
-        depressionButton.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
-        depressionButton.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                depressionButtonActionPerformed(evt);
-            }
-        });
-
-        schoolStresserButton.setText("3. School Stressers");
-        schoolStresserButton.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
-        schoolStresserButton.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                schoolStresserButtonActionPerformed(evt);
-            }
-        });
-
-        griefLossButton.setText("4. Grief & Loss");
-        griefLossButton.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
-        griefLossButton.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                griefLossButtonActionPerformed(evt);
-            }
-        });
-
-        javax.swing.GroupLayout mainPanelLayout = new javax.swing.GroupLayout(mainPanel);
-        mainPanel.setLayout(mainPanelLayout);
-        mainPanelLayout.setHorizontalGroup(
-            mainPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(roomListLabel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-            .addComponent(socialAnxientyButton, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-            .addComponent(depressionButton, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-            .addComponent(schoolStresserButton, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-            .addComponent(griefLossButton, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-        );
-        mainPanelLayout.setVerticalGroup(
-            mainPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(mainPanelLayout.createSequentialGroup()
-                .addComponent(roomListLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 22, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(socialAnxientyButton, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(depressionButton, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(schoolStresserButton, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(griefLossButton, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(0, 0, Short.MAX_VALUE))
-        );
-
         chatBox.setColumns(20);
         chatBox.setRows(5);
         chatBoxScrollPane.setViewportView(chatBox);
@@ -142,6 +80,19 @@ public class GuelphHackChat extends javax.swing.JFrame {
 
         reportButton.setText("Report");
 
+        chatroomLabel.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        chatroomLabel.setText("Chatrooms");
+        chatroomLabel.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
+
+        switchRoomButton.setText("Switch Room");
+        switchRoomButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                switchRoomButtonActionPerformed(evt);
+            }
+        });
+
+        roomScrollPane.setViewportView(roomList);
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
@@ -149,59 +100,73 @@ public class GuelphHackChat extends javax.swing.JFrame {
             .addGroup(layout.createSequentialGroup()
                 .addContainerGap()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(logoutButton, javax.swing.GroupLayout.PREFERRED_SIZE, 170, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(mainPanel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addComponent(currChatLabel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(chatBoxScrollPane, javax.swing.GroupLayout.DEFAULT_SIZE, 414, Short.MAX_VALUE)
-                    .addComponent(chatBoxEntryScrollPane))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                        .addGroup(layout.createSequentialGroup()
-                            .addComponent(infoButton, javax.swing.GroupLayout.PREFERRED_SIZE, 70, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                            .addComponent(reportButton, javax.swing.GroupLayout.PREFERRED_SIZE, 73, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addComponent(userScrollPane, javax.swing.GroupLayout.PREFERRED_SIZE, 153, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addComponent(usersLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 153, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(chatroomLabel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                                .addComponent(logoutButton, javax.swing.GroupLayout.PREFERRED_SIZE, 74, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 10, Short.MAX_VALUE)
+                                .addComponent(switchRoomButton))
+                            .addComponent(roomScrollPane))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addComponent(chatBoxScrollPane, javax.swing.GroupLayout.DEFAULT_SIZE, 415, Short.MAX_VALUE)
+                            .addComponent(chatBoxEntryScrollPane))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                                .addComponent(infoButton, javax.swing.GroupLayout.PREFERRED_SIZE, 70, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                .addComponent(reportButton, javax.swing.GroupLayout.PREFERRED_SIZE, 73, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addComponent(userScrollPane)
+                            .addComponent(usersLabel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
+                    .addComponent(currChatLabel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addContainerGap())
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                 .addContainerGap()
+                .addComponent(currChatLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 11, Short.MAX_VALUE)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(usersLabel, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addGroup(layout.createSequentialGroup()
-                        .addComponent(currChatLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 38, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(0, 0, Short.MAX_VALUE))
-                    .addComponent(logoutButton, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(mainPanel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(usersLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 20, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addComponent(userScrollPane, javax.swing.GroupLayout.PREFERRED_SIZE, 369, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(infoButton)
+                            .addComponent(reportButton)))
                     .addGroup(layout.createSequentialGroup()
-                        .addGap(4, 4, 4)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                                .addComponent(userScrollPane)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                                    .addComponent(infoButton)
-                                    .addComponent(reportButton)))
-                            .addGroup(layout.createSequentialGroup()
-                                .addComponent(chatBoxScrollPane, javax.swing.GroupLayout.PREFERRED_SIZE, 308, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(chatBoxEntryScrollPane, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                        .addGap(0, 0, Short.MAX_VALUE)))
-                .addContainerGap())
+                        .addComponent(chatBoxScrollPane, javax.swing.GroupLayout.PREFERRED_SIZE, 308, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(chatBoxEntryScrollPane, javax.swing.GroupLayout.PREFERRED_SIZE, 116, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                        .addComponent(chatroomLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 18, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addComponent(roomScrollPane, javax.swing.GroupLayout.PREFERRED_SIZE, 372, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(switchRoomButton)
+                            .addComponent(logoutButton))))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
-        setCurrentChat(this.socAnxRoom);
+        initRooms();
+        setCurrentChat(0);
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
+    
+    private void initRooms(){
+        rooms.add(new GuelphHackChatroom("Social Anxiety"));
+        rooms.add(new GuelphHackChatroom("Depression"));
+        rooms.add(new GuelphHackChatroom("School Stressers"));
+        rooms.add(new GuelphHackChatroom("Grief and Loss"));
+    }
+    
     private void sendMessage(String user, String message){
         GuelphHackMessage m = new GuelphHackMessage(user, message);
         this.currentChat.addMessage(m);
@@ -226,15 +191,39 @@ public class GuelphHackChat extends javax.swing.JFrame {
         this.chatBox.append(m.toString());
     }
     
-    private void updateUserlist(GuelphHackChatroom c){
+    private void updateUserList(GuelphHackChatroom c){
         ArrayList<GuelphHackUser> u = c.getUsers();
         userList.removeAll();
         if (!c.emptyRoom()){
             for (int i =0; i < u.size(); i++){
-                System.out.println(u.size());
                 userList.add(u.get(i).getHandle());
             }
         }
+        updateChatList();
+    }
+    
+    private void updateChatList(){
+        //ArrayList<GuelphHackUser> u = c.getUsers();
+        roomList.removeAll();
+        for (int i =0; i < rooms.size(); i++){
+            roomList.add(rooms.get(i).getChatroomName());
+        }
+    }
+    
+    private void setCurrentChat(int i){
+        GuelphHackChatroom c = rooms.get(i);
+        setCurrentChat(c);
+    }
+    
+    private void setCurrentChat(String name){
+        GuelphHackChatroom c;
+        for (int i =0; i< rooms.size(); i++){
+            c = rooms.get(i);
+            if (c.getChatroomName().equals(name)){
+                setCurrentChat(c);
+            }
+        }
+        
     }
     
     private void setCurrentChat(GuelphHackChatroom c){
@@ -244,30 +233,10 @@ public class GuelphHackChat extends javax.swing.JFrame {
         this.currentChat = c;
         c.addUser(new GuelphHackUser("Mod"));
         c.addUser(new GuelphHackUser("Test"));
-        updateUserlist(c);
+        updateUserList(c);
         printChatLog(c);
     }
     
-    private void socialAnxientyButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_socialAnxientyButtonActionPerformed
-        currChatLabel.setText(this.socAnxRoom.getChatroomName());
-        setCurrentChat(this.socAnxRoom);
-    }//GEN-LAST:event_socialAnxientyButtonActionPerformed
-
-    private void depressionButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_depressionButtonActionPerformed
-        currChatLabel.setText(this.depresRoom.getChatroomName());
-        setCurrentChat(this.depresRoom);
-    }//GEN-LAST:event_depressionButtonActionPerformed
-
-    private void schoolStresserButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_schoolStresserButtonActionPerformed
-        currChatLabel.setText(this.schoolRoom.getChatroomName());
-        setCurrentChat(this.schoolRoom);
-    }//GEN-LAST:event_schoolStresserButtonActionPerformed
-
-    private void griefLossButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_griefLossButtonActionPerformed
-        currChatLabel.setText(this.grief2Room.getChatroomName());
-        setCurrentChat(this.grief2Room);
-    }//GEN-LAST:event_griefLossButtonActionPerformed
-
     private void chatBoxEntryKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_chatBoxEntryKeyTyped
         if (evt.getKeyChar() == '\n'){
             sendMessage("Mod",chatBoxEntry.getText().trim());
@@ -278,6 +247,10 @@ public class GuelphHackChat extends javax.swing.JFrame {
     private void logoutButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_logoutButtonActionPerformed
         this.dispatchEvent(new WindowEvent(this, WindowEvent.WINDOW_CLOSING));
     }//GEN-LAST:event_logoutButtonActionPerformed
+
+    private void switchRoomButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_switchRoomButtonActionPerformed
+        setCurrentChat(roomList.getSelectedItem());
+    }//GEN-LAST:event_switchRoomButtonActionPerformed
                               
     /**
      * @param args the command line arguments
@@ -313,25 +286,21 @@ public class GuelphHackChat extends javax.swing.JFrame {
     private javax.swing.JTextArea chatBoxEntry;
     private javax.swing.JScrollPane chatBoxEntryScrollPane;
     private javax.swing.JScrollPane chatBoxScrollPane;
+    private javax.swing.JLabel chatroomLabel;
     private java.awt.Label currChatLabel;
-    private javax.swing.JButton depressionButton;
-    private javax.swing.JButton griefLossButton;
     private javax.swing.JButton infoButton;
     private javax.swing.JButton logoutButton;
-    private javax.swing.JPanel mainPanel;
     private javax.swing.JCheckBox miscCheckBox;
     private javax.swing.JButton reportButton;
-    private javax.swing.JLabel roomListLabel;
-    private javax.swing.JButton schoolStresserButton;
-    private javax.swing.JButton socialAnxientyButton;
+    private java.awt.List roomList;
+    private javax.swing.JScrollPane roomScrollPane;
+    private javax.swing.JButton switchRoomButton;
     private java.awt.List userList;
     private javax.swing.JScrollPane userScrollPane;
     private javax.swing.JLabel usersLabel;
     // End of variables declaration//GEN-END:variables
-    private GuelphHackChatroom socAnxRoom = new GuelphHackChatroom("Social Anxiety");
-    private GuelphHackChatroom depresRoom = new GuelphHackChatroom("Depression");
-    private GuelphHackChatroom schoolRoom = new GuelphHackChatroom("School Stressers");
-    private GuelphHackChatroom grief2Room = new GuelphHackChatroom("Grief & Loss");
+    
+    private ArrayList<GuelphHackChatroom> rooms = new ArrayList<GuelphHackChatroom>();
     private GuelphHackChatroom currentChat;
     private boolean appStarting = true;
 }
