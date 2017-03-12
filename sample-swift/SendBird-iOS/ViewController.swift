@@ -26,9 +26,10 @@ class ViewController: UITableViewController, UITextFieldDelegate {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        // Version
-        let path = Bundle.main.path(forResource: "Info", ofType: "plist")
-
+        //lol
+        var socketService = SocketService()
+        socketService.startBroadcast()
+        
         
         self.userIdTextField.delegate = self
         self.nicknameTextField.delegate = self
